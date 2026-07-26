@@ -35,6 +35,10 @@ REGISTRY_FIELDS = {
     "ecosystem", "resources", "learning",
 }
 CAPABILITY_FIELDS = {"id", "contract", "accepts", "outputs", "delegates", "evidence"}
+PORTABLE_SUPPORT_DIRS = ("references", "templates", "scripts")
+PORTABLE_SUPPORT_REF = re.compile(
+    r"`((?:references|templates|scripts)/[^`\s]+)`"
+)
 
 
 def _atom(value: str) -> str:
@@ -567,6 +571,25 @@ def validate_internal_links(root: Path = ROOT) -> None:
                 raise ValueError(f"{source.relative_to(root)} has broken local link: {target}")
 
 
+def validate_portable_bundle_manifest(root: Path, skill_text: str) -> None:
+    declared = {
+        match.group(1).rstrip(".,;:") for match in PORTABLE_SUPPORT_REF.finditer(skill_text)
+    }
+    expected = {
+        str(path.relative_to(root))
+        for directory in PORTABLE_SUPPORT_DIRS
+        for path in (root / directory).rglob("*")
+        if path.is_file()
+        and not path.is_symlink()
+        and "__pycache__" not in path.parts
+        and path.suffix != ".pyc"
+        and not path.name.startswith(".")
+    }
+    missing = sorted(expected - declared)
+    if missing:
+        raise ValueError("portable bundle manifest omits support files: " + ", ".join(missing))
+
+
 def validate_root(root: Path) -> int:
     skill = root / "SKILL.md"
     text = skill.read_text(encoding="utf-8")
@@ -586,6 +609,7 @@ def validate_root(root: Path) -> int:
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
     validate_catalog(catalog, allowed_spdx=load_spdx_ids(spdx_path), spdx_path=spdx_path)
     validate_audit_baseline(json.loads(audit_path.read_text(encoding="utf-8")), catalog, root)
+    validate_portable_bundle_manifest(root, text)
     if any(path.is_symlink() for path in root.rglob("*")):
         raise ValueError("portable skill tree must not contain symlinks")
     nested = sorted(path.relative_to(root) for path in root.rglob("SKILL.md") if path != skill)

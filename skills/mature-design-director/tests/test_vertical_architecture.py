@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import shutil
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -71,6 +73,19 @@ class VerticalArchitectureTests(unittest.TestCase):
             self.assertTrue((ROOT / path).is_file(), path)
         self.assertTrue((ROOT / data["learning"]["contract"]).is_file())
         self.assertEqual(data["learning"]["project_record"], ".hermes/design/")
+
+    def test_portable_bundle_manifest_covers_new_support_files(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "skill"
+            shutil.copytree(ROOT, root)
+            extra = root / "references" / "capabilities" / "future-medium.md"
+            extra.write_text("# Future medium\n", encoding="utf-8")
+            skill_text = (root / "SKILL.md").read_text(encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "bundle manifest omits"):
+                VALIDATOR.validate_portable_bundle_manifest(root, skill_text)
+            VALIDATOR.validate_portable_bundle_manifest(
+                root, skill_text + "\n`references/capabilities/future-medium.md`\n"
+            )
 
 
 if __name__ == "__main__":

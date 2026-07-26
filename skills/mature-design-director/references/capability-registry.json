@@ -190,7 +190,7 @@
     "provenance": "references/open-design-skill-provenance.md"
   },
   "resources": [
-    "LICENSE",
+    "references/LICENSE.txt",
     "templates/final-user-design-brief.md",
     "templates/adoption-ledger.md",
     "templates/design-retrospective.md",
