@@ -34,7 +34,7 @@ Do not edit the validator to add the capability name. The extension regression t
 ## Required checks
 
 ```bash
-python3 skills/mature-design-director/scripts/validate_skill.py
+python3 skills/mature-design-director/maintenance/validate_skill.py
 python3 -m unittest discover -s skills/mature-design-director/tests -p 'test_*.py'
 ```
 

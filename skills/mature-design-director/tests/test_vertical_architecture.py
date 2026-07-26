@@ -12,9 +12,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "references" / "capability-registry.json"
-VALIDATOR_PATH = ROOT / "scripts" / "validate_skill.py"
+VALIDATOR_PATH = ROOT / "maintenance" / "validate_skill.py"
 
-sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "maintenance"))
 SPEC = importlib.util.spec_from_file_location("validate_skill_v3", VALIDATOR_PATH)
 assert SPEC and SPEC.loader
 VALIDATOR = importlib.util.module_from_spec(SPEC)

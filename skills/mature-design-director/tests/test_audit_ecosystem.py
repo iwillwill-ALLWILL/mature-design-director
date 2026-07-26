@@ -15,10 +15,10 @@ from pathlib import Path
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "scripts" / "audit_ecosystem.py"
+SCRIPT = ROOT / "maintenance" / "audit_ecosystem.py"
 CATALOG = ROOT / "references" / "ecosystem-catalog.json"
-SPDX_POLICY = ROOT / "references" / "spdx-license-ids.json"
-sys.path.insert(0, str(ROOT / "scripts"))
+SPDX_POLICY = ROOT / "maintenance" / "spdx-license-ids.json"
+sys.path.insert(0, str(ROOT / "maintenance"))
 SPEC = importlib.util.spec_from_file_location("audit_ecosystem", SCRIPT)
 assert SPEC and SPEC.loader
 AUDIT = importlib.util.module_from_spec(SPEC)

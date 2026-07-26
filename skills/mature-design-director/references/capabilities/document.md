@@ -72,5 +72,5 @@ A document is complete only when:
 - the complete rendered document has been inspected in reading order;
 - the densest and most fragile pages pass full-size review;
 - source and exported artifact are fresh and reproducible;
-- accessibility/print checks match the delivery context;
+- accessibility and print-output checks suit the target medium;
 - the exact delivered binary and publication state are reported separately.

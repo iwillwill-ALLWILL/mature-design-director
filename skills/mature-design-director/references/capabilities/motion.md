@@ -42,7 +42,7 @@ An AI Director may operate only as a constrained sidecar: it can propose structu
 
 Validate one 8–12 second proof scene before migrating the whole cut. Reject recorder-only tools when post-production is required, speech-analysis tools when there is no narration, and attractive but archived/custom-license projects without explicit review.
 
-`references/capabilities/motion/palmier-pro-mcp-finishing-workflow.md` is a native-NLE option when its current version and MCP canary pass. Programmatic and native timelines must not both own the final cut.
+Programmatic and native timelines must not both own the final cut. A native NLE is an adapter choice, not a separate creative authority; prove its current import, edit, render, and reopen path with a disposable scene before adoption.
 
 ## Real-product capture
 
@@ -81,9 +81,9 @@ When a clean cut is too fast:
 - use full view → short push → stable hold → short pull-out for proof scenes;
 - render key stills and boundary phases before the full film.
 
-Avoid competing caption systems and overlays covering the evidence they explain. See `references/capabilities/motion/remotion-guided-demo-retiming.md` and `references/capabilities/motion/remotion-proof-scene-validation.md`.
+Avoid competing caption systems and overlays covering the evidence they explain. Keep timing constants and source intervals in one importable contract, render boundary frames, and test source-duration × FPS against allocated frames before a full render.
 
-A detector finding no pure-white frame does not prove there is no perceived white cut. Sample immediately before/during/after every cut, bridge, zoom entrance/hold/exit, and inspect semantic continuity. Use `references/capabilities/motion/continuous-browser-demo-validation.md`.
+A detector finding no pure-white frame does not prove there is no perceived white cut. Sample immediately before/during/after every cut, bridge, zoom entrance/hold/exit, and inspect semantic continuity.
 
 When a later version becomes repetitive or over-directed, stop stacking patches. Compare accepted and rejected story beats, keep only the genuinely new proof, and rebuild privately from a fresh scene plan.
 
@@ -112,12 +112,7 @@ Record provider/model/voice type, entitlement source, account tier, generation d
 
 For music, retain official source URL, title, creator, direct-media URL when available, license, retrieval date, and hash. An inherited filename is not provenance. Raw stock media stays out of public code archives unless redistribution is permitted.
 
-Use:
-
-- `references/capabilities/motion/open-source-chinese-narration-macos.md`;
-- `references/capabilities/motion/tts-licensing-and-remotion-macos.md`;
-- `references/capabilities/motion/segmented-voice-consistency-mastering.md`;
-- `references/capabilities/motion/media-provenance-and-repository-isolation.md`.
+Select narration through a rights-first A/B canary on the actual target language and difficult terms. Keep model/checkpoint, preset/reference, seed/sampling policy, entitlement, source URLs, and hashes in the project record. Platform-specific install commands and version canaries belong to the chosen audio adapter, not this capability.
 
 ## Pixel privacy
 
@@ -142,8 +137,6 @@ Before calling a cut final:
 - the actual playable candidate was visibly delivered and reviewed.
 
 Keep candidates private. A technically valid cut is not approved. Freeze one local master after approval, record hash, archive reproducible source without dependencies/caches/duplicate renders, and keep publication as a separate gate. After platform transcoding, verify playback, first/final frames, audio, captions/description support, and final URL/state.
-
-Use `references/capabilities/motion/final-video-handoff.md`.
 
 ## Learning
 

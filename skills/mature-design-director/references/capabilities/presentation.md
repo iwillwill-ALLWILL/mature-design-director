@@ -13,7 +13,7 @@ Before design, inspect the authoritative rules or delivery contract and record:
 - planned, simulated, local, deployed, and production truth boundaries;
 - current state: registered, preview ready, awaiting approval, submitted, awarded.
 
-Use `references/capabilities/presentation/official-competition-rule-research.md` when the portal is dynamic, contradictory, or partially login-gated.
+When a portal is dynamic, contradictory, or partially login-gated, use current first-party rules/API data, then authorized portal inspection; label unresolved ambiguity rather than treating a third-party summary as authority.
 
 For judged work, compare at least:
 
@@ -75,7 +75,7 @@ Preserve semantic operators: before/after, no later than, at most, ranges, uncer
 
 For metrics, include denominator, exact command/workflow, date/timezone, scope, workspace status, and bounded error claim. Prefer `95/95 in this dated suite` over unsupported giant numbers.
 
-Use `references/capabilities/presentation/judge-evidence-package-clean-room.md` for a minimal reproducible evidence snapshot and clean-room verification.
+For a minimal reproducible evidence snapshot, rebuild from a clean environment with only the permitted source, dependencies, commands, and truth-boundary labels; do not reuse source caches, credentials, browser state, or unrelated repository history.
 
 ## Assembly and delivery modes
 
@@ -88,7 +88,7 @@ Choose deliberately:
 
 Disclose image-backed/non-editable tradeoffs. Do not let PptxGenJS or another programmatic tool invent the visual grammar from repeated rectangles. Preserve a strong approved motion source in its native/high-fidelity channel rather than replacing it with stiff motion merely to fit PPTX.
 
-Use `references/capabilities/presentation/motion-deck-direction-workflow.md` and `references/capabilities/presentation/offline-dynamic-deck-delivery.md` only when motion or offline dynamic delivery genuinely increases judging/user value.
+Use motion or offline dynamic delivery only when it genuinely increases judging/user value. Preserve the QA-passed static fallback, verify playback in the exact target viewer, and do not substitute a palette-limited full-slide GIF for native timing or a high-quality video fallback.
 
 ## Reverse-render and package QA
 
@@ -106,12 +106,6 @@ Required loop:
 10. reproduce the packaging chain in a clean environment when submission risk is high.
 
 A changed source with an unchanged final binary is stale, regardless of a tool's success message. A tall contact sheet that the user cannot see is not delivered; provide representative/full pages separately.
-
-Use:
-
-- `references/capabilities/presentation/deck-preview-delivery-and-export-contract.md`;
-- `references/capabilities/presentation/strict-pptx-submission-audit.md`;
-- `references/capabilities/presentation/static-pptx-package-sanitization.md`.
 
 A visible-clean deck can still contain dormant template text, stale metadata, external relationships, or hidden parts. Under literal no-placeholder requirements, package residue is a failure or explicit risk.
 

@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Validate contracts
-        run: python3 skills/mature-design-director/scripts/validate_skill.py
+        run: python3 skills/mature-design-director/maintenance/validate_skill.py
       - name: Run tests
         env:
           PYTHONDONTWRITEBYTECODE: "1"

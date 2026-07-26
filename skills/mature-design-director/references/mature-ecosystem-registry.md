@@ -28,22 +28,13 @@ Best for · Risk/not for · Repository-health verification date
 
 Avoid hard-coded star counts in durable guidance; they stale quickly. Prefer release/version/date, archived state, current docs, and executed project fit.
 
-## Structured catalog and live audit
+## Structured catalog and maintenance evidence
 
 `references/ecosystem-catalog.json` is the machine-readable candidate index. At its 2026-07-25 expanded baseline it contains **104 live repositories across 63 exact layers and 14 layer families**: 102 GitHub projects and 2 official GitLab projects. All 104 repository metadata queries and all 104 license-source checks completed; none was archived, none crossed the two-year stale-review threshold, and no repository query failed. Explicit `accepted_spdx` comparison produced **77 matches, 25 `LICENSE_REVIEW` results, and 2 `REPOSITORY_REVIEW` results**. The two repository reviews are the replayable result of the current public GitLab project responses omitting a boolean archived field; if that field becomes available, their fixed `NOASSERTION` license metadata will instead keep them in `LICENSE_REVIEW`. Manual review covers `NOASSERTION`, open-core, custom, multi-license, third-party-component, model, dataset, trademark, hosted-service, distribution, and asset-license boundaries.
 
-`references/ecosystem-audit-baseline.json` preserves the full repository-metadata result with UTC audit time, catalog SHA-256, auditor SHA-256, repository identities, status counts, and zero operational failures. Deep validation fails when the catalog or auditor changes without a fresh live baseline. License-source reachability remains a separate URL canary because an accessible URL is provenance evidence, not a license decision.
+The source repository keeps point-in-time audit evidence, policy data, and maintenance tooling outside the portable runtime bundle. That separation prevents repository credentials and development-only checks from becoming part of an installed creative skill. It does not weaken adoption: each catalog row still carries official source, provider, license source, verification date, explicit accepted identifiers, and manual-review state.
 
-This proves current repository health only. It does not prove product fit, output quality, asset rights, model rights, or a future license. Before a material adoption, run:
-
-```bash
-python3 -m unittest discover -s tests -p 'test_*.py'
-python3 scripts/audit_ecosystem.py
-python3 scripts/audit_ecosystem.py --layer motion
-python3 scripts/audit_ecosystem.py --family game-development
-```
-
-The audit uses authenticated `gh` for GitHub when available, otherwise standard-library GitHub REST with `GITHUB_TOKEN`/`GH_TOKEN`; anonymous mode is suitable only for a layer or family small enough to stay within GitHub's public rate limit. Explicit `repository_provider: gitlab` rows use the encoded official GitLab project endpoint. Unknown providers are rejected before network access. Exact `--layer` remains available while `--family` audits related layers such as all motion, visual-authoring, or game-development candidates. It compares live SPDX identifiers only against each catalog row's explicit `accepted_spdx` array—never against prose or substrings—and also honors `manual_license_review`. `accepted_spdx` itself is fail-closed against the 727 identifiers in the pinned official SPDX License List 3.28.0 snapshot at `references/spdx-license-ids.json`; `NOASSERTION`, `LicenseRef`, `DocumentRef`, arbitrary lookalikes, and license expressions are not accepted policy tokens. Every record carries `license_source_url` and `license_verified_at` for provenance. The audit flags archived, stale, inaccessible, unknown repository state, exact SPDX differences, every `NOASSERTION`, and every policy-mandated manual review. Such repositories are reported as `LICENSE_REVIEW` or `REPOSITORY_REVIEW`, not `OK`; strict audit intentionally exits nonzero, and a concrete adoption must record its separate manual license decision in the adoption ledger. Do not silently weaken the gate to make a degraded dependency pass.
+The recorded audit proves repository health only. It does not prove product fit, output quality, asset rights, model rights, or a future license. Before material adoption, recheck the official repository and license source live, run the smallest useful integration canary, and record the independent manual decision. An accessible license URL is provenance evidence, not automatic permission. Unknown, mismatched, custom, or unclassified terms remain review states rather than being silently promoted to `OK`.
 
 ## Frontend and interactive product routing
 

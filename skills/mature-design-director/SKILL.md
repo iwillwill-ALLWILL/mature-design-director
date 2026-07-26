@@ -1,7 +1,7 @@
 ---
 name: mature-design-director
 description: Use when creating or directing any user-facing artifact. Turns final-user intent into one authored design system, routes only the needed creative capabilities and mature tools, and requires whole-artifact evidence before delivery.
-version: 3.0.1
+version: 3.1.0
 author: i willwill + Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
@@ -189,7 +189,6 @@ Lead with the actual artifact or preview. Distinguish generated, technically ver
 - `references/creative-skill-sources.json` — governed synthesis of mature public creative skills.
 - `references/mature-ecosystem-registry.md` — production-tool adoption protocol and live-maintained shortlist.
 - `references/ecosystem-catalog.json` — structured production-project catalog.
-- `references/ecosystem-audit-baseline.json` — point-in-time live audit evidence.
 - `references/open-design-skill-provenance.md` — source-level attribution and synthesis boundaries.
 - `references/learning-system.md` — private task memory, promotion, redaction, and pruning.
 
@@ -208,23 +207,7 @@ continues to come exclusively from references/capability-registry.json.
 - `references/capabilities/image.md`
 - `references/capabilities/interface.md`
 - `references/capabilities/motion.md`
-- `references/capabilities/motion/continuous-browser-demo-validation.md`
-- `references/capabilities/motion/final-video-handoff.md`
-- `references/capabilities/motion/media-provenance-and-repository-isolation.md`
-- `references/capabilities/motion/open-source-chinese-narration-macos.md`
-- `references/capabilities/motion/palmier-pro-mcp-finishing-workflow.md`
-- `references/capabilities/motion/remotion-guided-demo-retiming.md`
-- `references/capabilities/motion/remotion-proof-scene-validation.md`
-- `references/capabilities/motion/segmented-voice-consistency-mastering.md`
-- `references/capabilities/motion/tts-licensing-and-remotion-macos.md`
 - `references/capabilities/presentation.md`
-- `references/capabilities/presentation/deck-preview-delivery-and-export-contract.md`
-- `references/capabilities/presentation/judge-evidence-package-clean-room.md`
-- `references/capabilities/presentation/motion-deck-direction-workflow.md`
-- `references/capabilities/presentation/official-competition-rule-research.md`
-- `references/capabilities/presentation/offline-dynamic-deck-delivery.md`
-- `references/capabilities/presentation/static-pptx-package-sanitization.md`
-- `references/capabilities/presentation/strict-pptx-submission-audit.md`
 - `references/capabilities/sound.md`
 - `references/capabilities/spatial.md`
 - `references/capabilities/sprite.md`
@@ -233,14 +216,11 @@ continues to come exclusively from references/capability-registry.json.
 - `references/capabilities/visual-explanation.md`
 - `references/capability-registry.json`
 - `references/creative-skill-sources.json`
-- `references/ecosystem-audit-baseline.json`
 - `references/ecosystem-catalog.json`
 - `references/learning-system.md`
 - `references/licenses/HIGGSFIELD-PRODUCT-PHOTOSHOOT.txt`
 - `references/mature-ecosystem-registry.md`
 - `references/open-design-skill-provenance.md`
-- `references/spdx-license-ids.json`
-- `scripts/audit_ecosystem.py`
 - `scripts/frontend/scan_frontend_project.py`
 - `scripts/game-ui/clean_alpha_fringe.py`
 - `scripts/game-ui/ingest_style_reference.py`
@@ -250,7 +230,6 @@ continues to come exclusively from references/capability-registry.json.
 - `scripts/media-requirements.txt`
 - `scripts/sprite/make_layout_guide.py`
 - `scripts/sprite/process_sprite_sheet.py`
-- `scripts/validate_skill.py`
 - `templates/adoption-ledger.md`
 - `templates/design-retrospective.md`
 - `templates/final-user-design-brief.md`

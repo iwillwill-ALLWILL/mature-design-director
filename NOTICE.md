@@ -8,6 +8,6 @@ The product-photoshoot reference preserves the upstream Higgsfield AI MIT notice
 
 The SPDX identifier policy is derived from SPDX License List Data. Its version, source URL, and hashes are recorded in:
 
-`skills/mature-design-director/references/spdx-license-ids.json`
+`skills/mature-design-director/maintenance/spdx-license-ids.json`
 
 Catalog links, repository names, and license identifiers are factual metadata and do not imply endorsement. Projects marked for manual license or repository review are not automatically approved dependencies.

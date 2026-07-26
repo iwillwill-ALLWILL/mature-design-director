@@ -184,8 +184,6 @@
   "ecosystem": {
     "creative_skills": "references/creative-skill-sources.json",
     "production_tools": "references/ecosystem-catalog.json",
-    "live_audit": "references/ecosystem-audit-baseline.json",
-    "license_policy": "references/spdx-license-ids.json",
     "adoption_protocol": "references/mature-ecosystem-registry.md",
     "provenance": "references/open-design-skill-provenance.md"
   },
@@ -194,7 +192,6 @@
     "templates/final-user-design-brief.md",
     "templates/adoption-ledger.md",
     "templates/design-retrospective.md",
-    "scripts/audit_ecosystem.py",
     "scripts/media-requirements.txt",
     "scripts/frontend/scan_frontend_project.py",
     "scripts/game-ui/clean_alpha_fringe.py",

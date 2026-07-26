@@ -402,7 +402,7 @@ def validate_catalog(rows, allowed_spdx: set[str] | None = None, spdx_path: Path
     if not isinstance(rows, list) or not rows:
         raise ValueError("catalog must be a non-empty JSON list")
     if allowed_spdx is None:
-        allowed_spdx = load_spdx_ids(spdx_path or ROOT / "references" / "spdx-license-ids.json")
+        allowed_spdx = load_spdx_ids(spdx_path or ROOT / "maintenance" / "spdx-license-ids.json")
     names, repositories = set(), set()
     today = dt.datetime.now(dt.timezone.utc).date()
     for index, row in enumerate(rows):
@@ -476,7 +476,7 @@ def validate_audit_baseline(data: object, catalog: list[dict], root: Path = ROOT
     if audited_at.tzinfo is None or audited_at > dt.datetime.now(dt.timezone.utc):
         raise ValueError("audit baseline audited_at must be timezone-aware and not future")
     catalog_path = root / "references" / "ecosystem-catalog.json"
-    auditor_path = root / "scripts" / "audit_ecosystem.py"
+    auditor_path = root / "maintenance" / "audit_ecosystem.py"
     if metadata["catalog_sha256"] != hashlib.sha256(catalog_path.read_bytes()).hexdigest():
         raise ValueError("audit baseline catalog hash differs from current catalog")
     if metadata["auditor_sha256"] != hashlib.sha256(auditor_path.read_bytes()).hexdigest():
@@ -601,9 +601,9 @@ def validate_root(root: Path) -> int:
     registry = json.loads((root / "references" / "capability-registry.json").read_text(encoding="utf-8"))
     linked = validate_capability_registry(registry, root)
     ecosystem = registry["ecosystem"]
-    spdx_path = root / ecosystem["license_policy"]
     catalog_path = root / ecosystem["production_tools"]
-    audit_path = root / ecosystem["live_audit"]
+    spdx_path = root / "maintenance" / "spdx-license-ids.json"
+    audit_path = root / "maintenance" / "ecosystem-audit-baseline.json"
     creative_skills_path = root / ecosystem["creative_skills"]
     validate_creative_skill_sources(json.loads(creative_skills_path.read_text(encoding="utf-8")))
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))

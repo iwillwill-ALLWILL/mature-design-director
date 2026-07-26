@@ -110,7 +110,7 @@ def collect_colors(files: list[Path]) -> list[dict[str, Any]]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Scan a frontend project and print JSON context.")
+    parser = argparse.ArgumentParser(description="Scan a frontend project and emit a JSON inventory.")
     parser.add_argument("root", nargs="?", default=".", help="Project root")
     args = parser.parse_args()
 

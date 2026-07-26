@@ -20,7 +20,7 @@ from validate_skill import load_spdx_ids, validate_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "references" / "ecosystem-catalog.json"
-SPDX_POLICY = ROOT / "references" / "spdx-license-ids.json"
+SPDX_POLICY = ROOT / "maintenance" / "spdx-license-ids.json"
 
 
 def audit_metadata(

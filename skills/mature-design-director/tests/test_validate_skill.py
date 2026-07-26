@@ -15,13 +15,13 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "scripts" / "validate_skill.py"
+SCRIPT = ROOT / "maintenance" / "validate_skill.py"
 SKILL = ROOT / "SKILL.md"
 REGISTRY = ROOT / "references" / "capability-registry.json"
 CATALOG = ROOT / "references" / "ecosystem-catalog.json"
-SPDX = ROOT / "references" / "spdx-license-ids.json"
-AUDIT = ROOT / "references" / "ecosystem-audit-baseline.json"
-sys.path.insert(0, str(ROOT / "scripts"))
+SPDX = ROOT / "maintenance" / "spdx-license-ids.json"
+AUDIT = ROOT / "maintenance" / "ecosystem-audit-baseline.json"
+sys.path.insert(0, str(ROOT / "maintenance"))
 SPEC = importlib.util.spec_from_file_location("validate_skill", SCRIPT)
 assert SPEC and SPEC.loader
 VALIDATOR = importlib.util.module_from_spec(SPEC)
