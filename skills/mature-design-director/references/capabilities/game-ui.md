@@ -16,6 +16,14 @@ This capability does **not** own characters, enemies, projectiles, impacts, or l
 
 Never load frontend implementation guidance for engine-native controls merely because both outputs are visual.
 
+## Native output classification
+
+- `engine-interface` requires the actual game project or a runnable native-engine scene plus real runtime capture.
+- `integration-ready-assets` require engine import evidence, semantic states, and runtime composition against representative gameplay.
+- A generated battle backdrop, browser HUD, isolated component board, or composited still is a `concept proof`. It may select direction but cannot be called an engine interface, playable scene, or final game UI.
+
+The selected creative foundation—an approved gameplay frame, existing game art bible, production assets, and real engine scene—authors the visual language. The engine, generator, web stack, atlas scripts, and image processors are assembly mechanics.
+
 ## Scope and engine detection
 
 Identify:
@@ -68,7 +76,7 @@ Read `references/capabilities/game-ui/component-contract.md` for naming, split l
 
 ## Generation and extraction
 
-Use the configured image-generation/editing backend for creative art. Scripts may inspect, crop, clean, resize, package, and validate; they must not create the art direction.
+Use the configured image-generation/editing backend only to produce source material under the selected creative foundation. Generated art remains candidate material until intended-scale gameplay proof and comparative selection. Scripts may inspect, crop, clean, resize, package, and validate; they must not create the art direction.
 
 For local helpers, use an isolated Python 3.11 environment with `scripts/media-requirements.txt`. Clear an inherited `PYTHONPATH` when creating/running the environment so Hermes or system site-packages cannot leak incompatible Pillow/NumPy binaries into it.
 
@@ -130,7 +138,7 @@ Godot stretch assets map to `NinePatchRect`, `TextureButton`, or `TextureProgres
 
 ## QA
 
-Inspect root/level overviews and each asset at 100% on light and dark target backgrounds. Block delivery for:
+Inspect root/level overviews and each asset at 100% on light and dark target backgrounds. For an `engine-interface`, also inspect real runtime gameplay capture at target resolution, input mode, densest combat state, danger state, and recovery/disabled state. A generated backdrop plus web overlay cannot supply native-context evidence. Block delivery for:
 
 - chroma spill or hidden key RGB;
 - cropped frame/ornament;

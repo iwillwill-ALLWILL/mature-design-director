@@ -56,13 +56,27 @@ A new task begins from the strongest approved prior state, not from generic defa
 After every meaningful review, record:
 
 - artifact/version/hash or exact path;
+- lifecycle state before and after review;
+- final audience separately from requester/reviewer;
 - sanitized feedback or an approved verbatim excerpt;
 - approval scope: medium, page/route/scene, visual/content/audio/interaction, and whether publication is included;
+- creative foundation separately from assembly mechanics;
+- mature benchmarks, comparative gaps, and reviewer independence;
 - observations that succeeded;
 - defects and root causes;
 - wasted path or unnecessary custom work;
 - fix and verification evidence;
 - candidate lesson and target layer.
+
+## Rejection contract
+
+Explicit user rejection transitions the candidate to the registry's terminal `rejected` state. It invalidates the direction and its dominant visual or sensory grammar, not merely the last polish pass.
+
+- Stop local cosmetic fixes and return to audience, foundation, or direction according to the root cause.
+- Do not reuse the rejected composition, imagery role, token grammar, or generated asset family as a positive baseline under another filename.
+- Keep rejected artifacts private by default and use only an abstract failure class or mutation fixture for regression.
+- When one rejection states a durable cross-medium doctrine or exposes the same authority failure across media, update the umbrella once; do not copy the warning into every capability.
+- A later approved artifact may replace the rejected baseline. Technical success, independent self-review, or lack of clipping cannot rehabilitate it.
 
 ## Promotion test
 
@@ -126,6 +140,8 @@ A lesson is incomplete until it has a checkable gate. Examples:
 - “No card soup” → whole-screen contact sheet review with information-budget audit.
 - “Do not hide real defects in video” → real-input product smoke before capture.
 - “Adopt mature tools, do not cite them” → adoption ledger requires executed spike and exact used capability.
+- “Mechanics impersonate visual authorship” → lifecycle release paths require separate creative-source, representative-proof, proof-selection, comparative-quality, and native-context evidence.
+- “Showcase wrapper impersonates the product” → brief separates final audience from requester/reviewer and keeps process narration outside the authentic encounter.
 - “Cross-route style drift” → same-size route contact sheet gate.
 - “Voice changes across chapters” → continuous master or speaker-verification canary plus listening gate.
 

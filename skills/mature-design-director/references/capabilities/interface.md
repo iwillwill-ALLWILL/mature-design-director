@@ -4,6 +4,8 @@ Use this capability for websites, web apps, dashboards, ecommerce, admin product
 
 Do not load this capability merely because an engine-native game HUD is visual. Godot Control, Unity UI Toolkit/uGUI, Cocos UI, and other engine-native systems use the actual engine implementation path plus `references/capabilities/game-ui.md`. Load this interface capability only when the HUD is genuinely rendered with web technology or the task also includes a separate web product surface.
 
+Enter production only from the umbrella's `selected-direction`. Approved artboards, an existing product system, a mature design system, and real product media can author the visible language. HTML, CSS, component code, browser tooling, and framework primitives are assembly mechanics; they cannot be recorded as the creative foundation merely because the result renders.
+
 ## Choose the mode
 
 | Observable request | Mode | Structural freedom |
@@ -69,7 +71,7 @@ When a final-quality visual asset is materially needed, define its job, source t
 
 ## Mature foundations
 
-Keep and extend the current system when it is sound. Otherwise use `references/mature-ecosystem-registry.md` and the catalog to compare focused candidates for the actual missing layer:
+Keep and extend the current visual/product system when it is sound. Otherwise establish intended-scale artboards and select product/media benchmarks before implementation. Use `references/mature-ecosystem-registry.md` and the catalog to compare focused mechanics for the actual missing layer:
 
 - accessible primitives;
 - forms and validation;
@@ -81,11 +83,11 @@ Keep and extend the current system when it is sound. Otherwise use `references/m
 
 Adopt one primary system plus a small number of orthogonal primitives. Do not run parallel component libraries for taste variety. Record concrete capability, version, license, spike result, bundle/runtime cost, and why custom code is still necessary.
 
-A component library owns behavior and accessibility; it does not own information architecture or product identity.
+A component library owns behavior and accessibility; it does not own information architecture, product identity, or the visible art direction. If no selected visual foundation exists, return to the umbrella proof gate instead of styling directly in code.
 
 ## Implementation passes
 
-Implement in this order unless the product demands another dependency order:
+Implement the selected visual proof in this order unless the product demands another dependency order:
 
 1. content deletion and progressive disclosure;
 2. information hierarchy and product composition;
@@ -135,7 +137,7 @@ A substantial frontend task is incomplete until the real running product passes:
 - keyboard, focus, pointer, coarse pointer, safe area, sticky UI, virtual keyboard, and reduced motion where applicable;
 - font/media loading, crop/focal point, overlays, responsive action reachability, and performance sufficient for context.
 
-Create a same-size route contact sheet and inspect the whole product for cross-route identity, density, margins, hero scale, chrome, imagery/control harmony, and rhythm. Headless screenshots and DOM geometry are supplemental; they do not replace interactive visual inspection.
+Create a same-size route contact sheet and inspect the whole product for cross-route identity, density, margins, hero scale, chrome, imagery/control harmony, and rhythm. Compare it with the selected product benchmarks for authorship, specificity, and media quality. Headless screenshots and DOM geometry are supplemental; they do not replace interactive visual inspection.
 
 Any route that looks like a separate template blocks completion even when the suite is green.
 

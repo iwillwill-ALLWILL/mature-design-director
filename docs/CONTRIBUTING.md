@@ -25,11 +25,12 @@ Add a contract under `references/capabilities/`, then add one registry row with:
 
 - unique `id`;
 - `accepts`;
-- `outputs`;
-- semantic `delegates` roles and candidates;
+- `outputs`, each with an `id`, required foundation/mechanics roles, allowed delivered classifications, and primary-artifact suffixes;
+- creative `foundations` roles and admissible source classes;
+- assembly-mechanics `delegates` roles and candidates;
 - required `evidence` IDs.
 
-Do not edit the validator to add the capability name. The extension regression test proves that a new declared capability validates without code changes.
+Do not edit the validator to add the capability name. The extension regression test proves that a new declared capability validates without code changes. If the capability introduces an opaque file/container format, add a format-level probe and regression fixture rather than trusting a suffix or hard-coding the capability. Package multi-file `.zip` artifacts with the exact hash-bound `artifact-manifest.json` contract documented by the skill.
 
 ## Required checks
 

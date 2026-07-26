@@ -3,6 +3,8 @@
 ## Artifact and approval
 
 - Artifact/version/private local reference:
+- Lifecycle state before / after review:
+- Final audience / requester / reviewer:
 - Review date:
 - Sanitized reviewer/user feedback; verbatim excerpt only if approved and non-sensitive:
 - Approved medium and scope:
@@ -33,7 +35,8 @@
 
 ## Mature ecosystem
 
-- Systems/assets actually adopted:
+- Creative foundations actually adopted:
+- Assembly mechanics actually adopted:
 - Exact versions/licenses:
 - Capability each one owned:
 - Candidates rejected after spike and why:
@@ -42,7 +45,7 @@
 ## Learning writeback
 
 - Candidate durable lesson:
-- Target: umbrella / frontend / deck / video / image / game / 3D / other:
+- Target: umbrella / interface / presentation / document / motion / image / game-ui / sprite / visual-explanation / spatial / sound:
 - New or sharpened regression gate:
 - Positive case worth preserving:
 - Promotion destination and authorization evidence:

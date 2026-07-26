@@ -1,6 +1,6 @@
 # Living Mature-Ecosystem Registry
 
-This is a **routing and due-diligence registry**, not a frozen claim that every listed project remains best. Versions, licenses, maintenance, pricing, and APIs change. Re-verify the applicable layer from official sources at task time.
+This is a **routing and due-diligence registry**, not a frozen claim that every listed project remains best. It mostly supplies assembly mechanics and source-production tooling; adopting an entry does not establish a creative foundation. Versions, licenses, maintenance, pricing, and APIs change. Re-verify the applicable layer from official sources at task time.
 
 ## Coverage rule
 
@@ -11,10 +11,12 @@ For each materially relevant layer:
 3. compare at least three credible maintained candidates when three exist;
 4. verify the actual license text, not a blog or GitHub classifier alone;
 5. run the smallest useful integration spike for the leading candidate when fit is uncertain;
-6. record adopted capability and rejection reason in the adoption ledger;
+6. record the candidate in the correct adoption-ledger layer—creative foundation or assembly mechanics—and never place a runtime/generator there merely to satisfy the foundation gate;
 7. update this registry only when a candidate was meaningfully verified or adopted.
 
 “All mature projects” means broad, current coverage of the relevant landscape—not installing every library or dumping search results into a final artifact.
+
+Licensed templates, approved design systems, production assets, and real identity/media sources may contribute to a creative foundation when they visibly author the selected proof. Code libraries, generators, engines, exporters, renderers, and QA tools remain mechanics even when they are essential.
 
 ## Candidate record schema
 

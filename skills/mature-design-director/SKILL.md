@@ -1,7 +1,7 @@
 ---
 name: mature-design-director
 description: Use when creating or directing any user-facing artifact. Turns final-user intent into one authored design system, routes only the needed creative capabilities and mature tools, and requires whole-artifact evidence before delivery.
-version: 3.1.0
+version: 4.0.0
 author: i willwill + Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
@@ -15,11 +15,11 @@ metadata:
 
 ## Purpose
 
-Direct the **finished experience seen, heard, or used by the final audience**. This is the single creative authority across interfaces, decks, documents, motion, images, game UI, sprites, diagrams, 3D/realtime work, and sound.
+Direct the **finished experience seen, heard, or used by the final audience**. This is the single creative authority across interfaces, decks, documents, motion, images, game UI, sprites, diagrams, 3D/realtime work, and sound. The requester, scorer, reviewer, operator, and portfolio audience are not substitutes for that final audience.
 
-The skill does not compete with authoring tools. It creates one project-specific direction, selects the narrow creative capability contracts, delegates irreducible mechanics to mature systems, and judges the complete artifact. Tools own execution; this skill owns why the artifact exists, how it should feel and work, and what evidence makes it finished.
+The skill does not compete with authoring tools. It creates one project-specific direction, selects a creative foundation, delegates irreducible assembly mechanics, and judges the complete artifact. A generator, framework, layout script, renderer, export library, or engine is mechanics unless the requested medium itself is creative coding. Tools can execute the direction; they cannot be treated as its source merely because they produced valid files.
 
-Load `references/capability-registry.json` as the single machine-readable map. Do not infer a parallel hierarchy from filenames or recreate a specialist design skill for a capability already represented there.
+Load `references/capability-registry.json` as the single machine-readable map for the flow, artifact lifecycle, release evidence, creative foundations, capabilities, and mechanics. Do not infer a parallel hierarchy from filenames or recreate a specialist design skill for a capability already represented there.
 
 ## When to use
 
@@ -41,12 +41,12 @@ This skill owns:
 1. final-user intent and encounter order;
 2. art and creative direction;
 3. semantic design-system decisions;
-4. mature-foundation adoption;
+4. creative-foundation adoption and mechanics separation;
 5. cross-capability coherence;
 6. whole-artifact critique and delivery truth;
 7. design learning.
 
-It delegates file formats, editors, engines, capture, rendering, encoding, and tool-specific operations. An external skill may impose stricter safety, truth, accessibility, legal, compatibility, or submission requirements. It may not silently replace the approved direction with its own aesthetic defaults.
+It delegates file formats, editors, engines, capture, rendering, encoding, packaging, and evidence capture. An external skill may impose stricter safety, truth, accessibility, legal, compatibility, or submission requirements. It may not silently replace the selected direction, approve its own output, or promote a mockup to a stronger artifact class.
 
 ## Design constitution
 
@@ -87,73 +87,74 @@ When several media ship together, the real product and one design contract remai
 
 ## Vertical production flow
 
-The registry defines the canonical stages. Execute them in order and return when evidence invalidates an earlier decision.
+The registry defines the canonical stages, artifact states, and release evidence. Execute them in order; a file, build, or delegation completion cannot skip a transition.
 
-### 1. Intent
+### 1. Intent — bind the authentic encounter and artifact truth
 
-Inspect supplied material and define audience, context, promise, action, emotion, trust, hesitation, failure, recovery, medium, and truth boundary. For substantial work, use `templates/final-user-design-brief.md`.
+For substantial work, use `templates/final-user-design-brief.md` and copy `templates/artifact-release-record.json` to `.hermes/design/artifact-release.json`. Separate the final audience from the requester, scorer, reviewer, operator, and portfolio audience. Name the real moment, device, attention budget, job, decisive state, failure/recovery path, native medium, and actual artifact class.
 
-**Complete when:** another person can judge fit from the user's perspective without reading implementation code.
+Production notes, showcase framing, generation disclosures, and QA labels stay outside the experience unless the final audience genuinely needs them. A scoring page is a review wrapper, not the product.
 
-### 2. Foundation
+**Complete when:** `audience-authenticity` exists and the artifact is a `direction-candidate`.
 
-Recover prior approved work before fresh ideation. Search project/session history for exact approvals and rejections. Research current mature creative skills, production tools, products, patterns, licensed assets, and design systems.
+### 2. Foundation — select what will author the experience
 
-For every material layer, compare credible maintained candidates when alternatives exist. Verify official source, maintenance, license, capability fit, integration cost, accessibility/export behavior, and a smallest useful spike. Record actual adoption or rejection in `templates/adoption-ledger.md`.
+Recover approved work and prior rejection before ideation. Inspect the product, brand, content, scene, data, subject, governed ecosystem, and mature benchmarks. Record separately in `templates/adoption-ledger.md`:
 
-**Complete when:** every material layer has an owner—an existing system, adopted mature capability/tool, authorized asset source, generated media path, or justified custom work.
+- the creative foundation for every dominant visible or audible layer;
+- the assembly mechanics that will implement it;
+- the exact gap for any custom or generated source;
+- provenance, license, executed spike, and final-scale selection evidence.
 
-### 3. Direction
+Research is not adoption. `custom`, `generated`, a prompt, source code, or a tool name cannot complete a creative-foundation row. If custom generation owns a dominant layer, it remains a candidate until comparative proof establishes its quality for the intended role.
 
-Create one semantic design contract. If taste is unresolved, make two or three genuinely different directions rather than variations of one template. Translate vague input into functional roles and observable behavior; keep enough creative space for medium-specific interpretation.
+**Complete when:** `creative-source` evidence exists and mechanics have no creative authority.
 
-**Complete when:** the direction is specific enough to constrain production but does not hardcode an arbitrary house style.
+### 3. Direction — author representative proof
 
-### 4. Proof
+Define one product-specific direction and express it at intended scale for:
 
-Before scaling, prove representative risk:
+- the opening / cover / hero / first-use moment;
+- the densest functional or evidentiary moment;
+- the decisive state, transition, result, failure, or close.
 
-- the first/hero/cover/listening moment;
-- the densest functional or evidence moment;
-- the decisive transition, failure/recovery, or closing moment.
+The direction includes hierarchy, rhythm, subject world, typography, palette, image/material/motion/sound roles, signature moment, and anti-identity. A prose brief, prompt, generated source image, source code, component gallery, or token sheet is not representative proof.
 
-Use real copy and representative media. Inspect at intended scale. A rejected direction becomes non-final; do not keep polishing its visual grammar under another name.
+**Complete when:** the candidate moments exist in the requested medium or a truthful final-scale artboard and are recorded as `representative-proof`.
 
-**Complete when:** one direction has explicit evidence of fit or user approval.
+### 4. Selection — compare before scaling
 
-### 5. Production
+Compare the candidate at intended scale with named mature benchmarks. Ask where it is less authored, specific, coherent, materially convincing, legible, or native to the medium—not merely whether it clips or builds.
 
-Read only the capability contracts selected from `references/capability-registry.json`. A task may compose several capabilities, but each output layer has one owner. Load external mechanics only after the direction, source truth, output contract, and evidence needs are known.
+When taste is unresolved or the user asked to score examples, show representative proofs and obtain exact approval before full production. Otherwise use a fresh reviewer competent in the medium, isolated from production-process context, and record the comparative decision. The producing agent cannot independently approve its own direction. Material inferiority, generic programmatic composition, or user rejection invalidates the direction rather than creating a polish list.
 
-Let mature systems own the solved layer for which they were adopted. Custom work creates product-specific differentiation; it must not be an excuse to avoid mature foundations.
+**Complete when:** `representative-proof` and `proof-selection` evidence move the artifact to `selected-direction`.
 
-**Complete when:** the complete artifact exists in its real editable/playable/native form and the production stack matches the adoption record.
+### 5. Production — compose capabilities, mechanics last
 
-### 6. Critique
+Only after selection, read the narrowest capability contracts from the registry. Give every delegate the same final-audience brief, selected foundation, truth boundary, output class, native runtime, and evidence needs. Delegates may implement layout, interaction, rendering, encoding, export, and packaging; they may not invent or approve a competing design language.
 
-Evaluate the actual rendered, exported, playable, printable, or listenable candidate—not source confidence. Use the capability's evidence types from the registry.
+Build the authentic artifact in its natural medium. Code may implement an interface, a slide library may assemble a deck, and an engine may run a HUD, but those mechanics cannot become the dominant design source. A mockup, web facsimile, generated scene, component board, or screenshot cannot be promoted to a stronger native class.
 
-At minimum:
+**Complete when:** the whole artifact exists as `production-candidate` with `source-truth`, `working-artifact`, `rendered-artifact`, and `native-context` evidence.
 
-1. technical integrity checks;
-2. complete-artifact overview;
-3. full-scale review of fragile moments;
-4. realistic device/runtime/context checks;
-5. truth, accessibility, rights, and privacy review;
-6. independent adversarial critique;
-7. defect fix and repeat of the same matrix.
+### 6. Critique — prove maturity, then remove defects
 
-Do not convert taste into shallow lint. Automated checks may catch clipping, contrast, dimensions, decode, schema, or provenance errors; they cannot certify art direction, emotional fit, or overall coherence.
+Inspect the complete journey, contact sheet, page grid, storyboard, scene/asset sheet, timeline, or equivalent. Compare the whole artifact again with selected benchmarks at final-user scale. Positive maturity is required: authorship, specificity, material quality, composition, medium fit, and audience credibility must hold before defect checks can finish the gate.
 
-**Complete when:** no unresolved defect materially harms comprehension, action, trust, identity, accessibility, truth, rights, or delivery compatibility.
+Then inspect interaction, temporal, device, engine and platform states; source truth; unsupported claims; accessibility; rights and privacy; build/render/export/decode/performance; editability; delivery state; and edge conditions. Use a fresh reviewer who did not produce the artifact. Fix shared root causes, re-render the affected matrix, and repeat the comparison.
 
-### 7. Learning
+Automated checks may catch clipping, contrast, dimensions, decode, schema, or provenance errors; they cannot certify art direction. “No clipping”, “opens successfully”, or a self-review is insufficient.
 
-Use `references/learning-system.md` and `templates/design-retrospective.md`. Keep raw task state and private assets in project-local `.hermes/design/`. Promote only an authorized, sanitized, reproducible lesson that changes future behavior and includes a regression gate.
+**Complete when:** no material maturity gap or blocking defect remains and the artifact reaches `release-candidate`.
 
-Patch the narrowest capability contract. Change the constitution only for repeated cross-capability lessons or explicit durable doctrine. Add a new capability only when no existing contract can own a recurring output class cleanly.
+### 7. Delivery and learning — transition state, do not narrate success
 
-**Complete when:** the next related task starts from stronger evidence without exposing private work or accumulating duplicate rules.
+Deliver only through the registry's complete release-evidence path. Bind the exact primary natural artifact (or deterministic bundle), output class, allowed delivered classification, suffix, format identity, hash, evidence subjects, state transitions, independent reviewers, benchmarks, and every adopted delegation result in `.hermes/design/artifact-release.json`, then run `python3 <skill-root>/maintenance/validate_skill.py --artifact-record .hermes/design/artifact-release.json --project-root .`. A concept proof claiming a stronger output, README/source generator standing in for the artifact, parallel creative authority, timeout/no-summary delegation, self-review, unbound file, or mechanics-only record fails closed. Multi-file ZIP artifacts require `templates/artifact-bundle-manifest.json` at archive root; it hash-binds the exact payload set and names one format-valid natural artifact as the primary entrypoint. Reopen the exact artifact and report artifact, approval, publication/submission, and delivery states separately. User rejection transitions any nonterminal candidate to `rejected`: invalidate the direction and its visual grammar, stop local polishing, and preserve only a private regression record.
+
+Use `references/learning-system.md` and `templates/design-retrospective.md`. Promote the narrowest class-level lesson that changes future behavior. A successful build is not approval; quality approval is not publication authorization; rejected work is never a positive case.
+
+**Complete when:** the artifact is truthfully `delivered` or `rejected`, and any promoted lesson is authorized, sanitized, reproducible, and non-anecdotal.
 
 ## Routing rule
 
@@ -161,9 +162,11 @@ Use the registry, not a prose exception list:
 
 1. match requested outputs against each capability's `accepts`;
 2. read only the matching `contract` files;
-3. use `delegates` to select available mechanics or mature projects;
-4. require the referenced `evidence` types;
-5. keep final creative authority here.
+3. select the capability's `foundations` before its `delegates`;
+4. use `delegates` only for assembly mechanics;
+5. require capability evidence plus the authority's inherited `release_evidence`;
+6. transition the shared `artifact_lifecycle` without bypass;
+7. keep final creative authority here.
 
 If no capability accepts the output, research the medium and add one vertical contract with inputs, outputs, delegation roles, and evidence. Do not create a parallel umbrella or encode the new medium as a validator constant.
 
@@ -181,23 +184,31 @@ Absorb behavior, not repositories:
 
 ## Delivery truth
 
-Lead with the actual artifact or preview. Distinguish generated, technically verified, perceptually reviewed, user approved, published, and externally submitted. Approval is bound to the exact artifact and reviewed dimension; it does not transfer across media or authorize publication by itself.
+Lead with the authentic artifact or explicitly named candidate state. Distinguish generated, technically verified, comparatively selected, perceptually reviewed, user approved, delivered, published, and externally submitted. Approval is bound to the exact artifact and reviewed dimension; it does not transfer across media or authorize publication by itself. A rejected candidate is regression evidence, not a portfolio example or reusable visual baseline.
 
 ## Core references
 
-- `references/capability-registry.json` — single source of truth for flow, capabilities, delegation, and evidence.
+- `references/capability-registry.json` — single source of truth for flow, lifecycle, creative foundations, capability mechanics, and evidence.
+- `references/artifact-release-record.md` — instance encoding for hash-bound lifecycle, reviewer, and delegation acceptance evidence.
 - `references/creative-skill-sources.json` — governed synthesis of mature public creative skills.
 - `references/mature-ecosystem-registry.md` — production-tool adoption protocol and live-maintained shortlist.
 - `references/ecosystem-catalog.json` — structured production-project catalog.
 - `references/open-design-skill-provenance.md` — source-level attribution and synthesis boundaries.
 - `references/learning-system.md` — private task memory, promotion, redaction, and pruning.
+- `templates/artifact-release-record.json` — per-artifact lifecycle and evidence instance validated before a delivered claim.
+- `templates/artifact-bundle-manifest.json` — exact payload/entrypoint manifest required inside a multi-file ZIP artifact.
 
 <!--
 Portable bundle support paths. This is a packaging adapter for GitHub skill
 installers that fetch only files named directly by SKILL.md. Creative routing
 continues to come exclusively from references/capability-registry.json.
 
+- `maintenance/audit_ecosystem.py`
+- `maintenance/ecosystem-audit-baseline.json`
+- `maintenance/spdx-license-ids.json`
+- `maintenance/validate_skill.py`
 - `references/LICENSE.txt`
+- `references/artifact-release-record.md`
 - `references/capabilities/document.md`
 - `references/capabilities/game-ui.md`
 - `references/capabilities/game-ui/component-contract.md`
@@ -231,6 +242,8 @@ continues to come exclusively from references/capability-registry.json.
 - `scripts/sprite/make_layout_guide.py`
 - `scripts/sprite/process_sprite_sheet.py`
 - `templates/adoption-ledger.md`
+- `templates/artifact-bundle-manifest.json`
+- `templates/artifact-release-record.json`
 - `templates/design-retrospective.md`
 - `templates/final-user-design-brief.md`
 -->

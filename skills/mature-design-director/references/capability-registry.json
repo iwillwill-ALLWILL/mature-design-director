@@ -1,12 +1,12 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "skill": "mature-design-director",
   "authority": {
     "owns": [
       "final-user-intent",
       "art-direction",
       "cross-medium-coherence",
-      "mature-foundation-selection",
+      "creative-foundation-selection",
       "whole-artifact-critique",
       "design-learning"
     ],
@@ -16,46 +16,126 @@
       "tool-specific-editing",
       "rendering-and-encoding"
     ],
-    "composition_rule": "direction-once-capabilities-as-needed-tools-last"
+    "composition_rule": "final-audience-first-creative-foundation-before-mechanics-capabilities-as-needed",
+    "release_evidence": [
+      "audience-authenticity",
+      "creative-source",
+      "representative-proof",
+      "proof-selection",
+      "comparative-quality",
+      "source-truth",
+      "working-artifact",
+      "rendered-artifact",
+      "native-context",
+      "independent-critique",
+      "delivery-verification"
+    ],
+    "distinct_evidence_sets": [
+      [
+        "creative-source",
+        "representative-proof",
+        "proof-selection",
+        "rendered-artifact",
+        "comparative-quality",
+        "independent-critique",
+        "delivery-verification"
+      ]
+    ]
+  },
+  "layer_contract": {
+    "creative_foundation": "Owns the dominant visible or audible language through an approved product system, artboard, reference set, real or licensed media, authored asset system, or an explicitly selected creative source.",
+    "assembly_mechanics": "Owns implementation, layout execution, runtime behavior, file structure, rendering, export, encoding, and packaging without inventing the creative direction.",
+    "separation_rule": "A generator, code framework, layout script, export library, renderer, or engine is assembly mechanics unless the requested medium itself is creative coding. Mechanics cannot be recorded as the creative foundation merely because they produced valid files."
+  },
+  "artifact_lifecycle": {
+    "initial_state": "direction-candidate",
+    "states": {
+      "direction-candidate": {"terminal": false, "user_facing_label": "candidate", "requires_output_foundations": false, "requires_output_mechanics": false},
+      "representative-proof": {"terminal": false, "user_facing_label": "proof for review", "requires_output_foundations": true, "requires_output_mechanics": false},
+      "selected-direction": {"terminal": false, "user_facing_label": "selected direction", "requires_output_foundations": true, "requires_output_mechanics": false},
+      "production-candidate": {"terminal": false, "user_facing_label": "production candidate", "requires_output_foundations": true, "requires_output_mechanics": true},
+      "release-candidate": {"terminal": false, "user_facing_label": "release candidate", "requires_output_foundations": true, "requires_output_mechanics": true},
+      "delivered": {"terminal": true, "user_facing_label": "delivered", "requires_output_foundations": true, "requires_output_mechanics": true},
+      "rejected": {"terminal": true, "user_facing_label": "rejected; regression evidence only", "requires_output_foundations": false, "requires_output_mechanics": false}
+    },
+    "release_states": ["delivered"],
+    "rejected_states": ["rejected"],
+    "transitions": [
+      {
+        "from": "direction-candidate",
+        "to": "representative-proof",
+        "requires": ["audience-authenticity", "creative-source"]
+      },
+      {
+        "from": "representative-proof",
+        "to": "selected-direction",
+        "requires": ["representative-proof", "proof-selection"]
+      },
+      {
+        "from": "selected-direction",
+        "to": "production-candidate",
+        "requires": ["source-truth", "working-artifact", "rendered-artifact", "native-context"]
+      },
+      {
+        "from": "production-candidate",
+        "to": "release-candidate",
+        "requires": ["comparative-quality", "independent-critique"]
+      },
+      {
+        "from": "release-candidate",
+        "to": "delivered",
+        "requires": ["delivery-verification"]
+      }
+    ],
+    "rejection_transition": {
+      "from_any_nonterminal": true,
+      "to": "rejected",
+      "effect": "Invalidate the direction and its visual grammar. Do not repair it through local polish or reuse it as a positive case."
+    }
   },
   "flow": [
     {
       "id": "intent",
-      "purpose": "Define the final user, encounter, promise, action, trust, emotion, recovery, and truth boundary.",
-      "completion": "The artifact can be judged from the user's perspective without implementation context."
+      "purpose": "Separate final audience from requester and bind the authentic encounter, native medium, artifact class, promise, action, recovery, and truth boundary.",
+      "completion": "Audience-authenticity evidence exists and the artifact is a direction-candidate."
     },
     {
       "id": "foundation",
-      "purpose": "Recover approved work and compare mature references, systems, assets, and tools before custom production.",
-      "completion": "Every material production layer has an evidence-backed owner or an explicit custom-work reason."
+      "purpose": "Recover approved work, select mature benchmarks, and separate the creative foundation of every material layer from assembly mechanics.",
+      "completion": "Creative-source evidence exists; custom or generated sources remain candidates until comparative proof."
     },
     {
       "id": "direction",
-      "purpose": "Create one semantic design contract for atmosphere, identity, hierarchy, type, color, imagery, motion, sound, and forbidden defaults.",
-      "completion": "The contract makes concrete project-specific choices without prescribing a fashionable style."
+      "purpose": "Express one project-specific direction as intended-scale proof for the opening, densest moment, and decisive state.",
+      "completion": "Representative moments exist in the requested medium or as truthful final-scale artboards."
     },
     {
-      "id": "proof",
-      "purpose": "Build representative high-risk moments before scaling production.",
-      "completion": "The opening, densest moment, and decisive proof or transition demonstrate the selected direction."
+      "id": "selection",
+      "purpose": "Compare representative proof with named mature benchmarks and obtain user approval or an isolated competent comparative decision before scaling.",
+      "completion": "Representative-proof and proof-selection evidence move the artifact to selected-direction."
     },
     {
       "id": "production",
-      "purpose": "Load only the required capability contracts and delegate irreducible mechanics to actual tools.",
-      "completion": "The complete artifact exists and each adopted system owns the layer it was selected for."
+      "purpose": "Load only required capability contracts and delegate mechanics after the creative foundation and native artifact class are fixed.",
+      "completion": "The complete production-candidate exists with source truth, working/rendered artifact, and native-context evidence."
     },
     {
       "id": "critique",
-      "purpose": "Inspect the complete rendered or playable artifact, fix defects, and repeat the same evidence matrix.",
-      "completion": "Technical, perceptual, truth, accessibility, rights, and delivery evidence pass for the exact artifact."
+      "purpose": "Compare the complete artifact positively with mature benchmarks, then remove technical, perceptual, truth, accessibility, rights, and delivery defects.",
+      "completion": "No material maturity gap or blocking defect remains and the artifact is a release-candidate."
     },
     {
-      "id": "learning",
-      "purpose": "Keep task state private; promote only authorized, sanitized, reproducible lessons into the narrowest capability.",
-      "completion": "A reusable lesson changes future behavior and includes a regression gate, or remains project-local."
+      "id": "delivery-learning",
+      "purpose": "Transition the exact artifact to delivered or rejected, verify delivery truth, and promote only authorized class-level learning.",
+      "completion": "The state is truthful; rejection invalidates the direction; any reusable lesson changes future behavior without becoming an anecdotal patch."
     }
   ],
   "evidence_types": {
+    "audience-authenticity": "The artifact is authored for the named final audience and encounter. Portfolio, showcase, generation, QA, and production narration stay outside the experience unless that audience genuinely needs them.",
+    "creative-source": "The dominant visible or audible language traces to an approved creative foundation distinct from assembly mechanics; custom or generated sources include reference roles and final-scale selection evidence.",
+    "representative-proof": "The opening, densest moment, and decisive state exist at intended scale before production.",
+    "proof-selection": "The exact representative proof is selected by the user or by an isolated reviewer competent in the medium after comparison with named mature benchmarks; the producing agent cannot self-select it.",
+    "comparative-quality": "The complete artifact is compared at intended scale with named mature benchmarks for authorship, specificity, material quality, and medium fit; material inferiority blocks release.",
     "source-truth": "Claims, content, identity, and product behavior trace to authoritative sources.",
     "working-artifact": "The real editable, playable, or native artifact exists and opens in its intended environment.",
     "rendered-artifact": "The actual export/render has been inspected at final-user scale.",
@@ -64,8 +144,9 @@
     "technical-integrity": "Build, export, decode, schema, dimensions, performance, and format checks pass as applicable.",
     "accessibility": "Perceivability, operability, contrast, focus, text alternatives, reduced motion or sensory alternatives are verified as applicable.",
     "rights-provenance": "Source, license, consent, generation/edit boundary, and redistribution scope are recorded.",
-    "independent-critique": "A fresh reviewer evaluates the actual artifact against intent rather than implementation effort.",
+    "independent-critique": "A fresh reviewer who did not produce the artifact, is competent in the medium, and lacks production-process context compares the actual artifact with intent and named benchmarks rather than implementation effort.",
     "delivery-verification": "The exact delivered or published artifact is reopened and its state is distinguished from approval and submission.",
+    "native-context": "The artifact runs in or truthfully represents the requested native medium and runtime. A mockup, web facsimile, concept board, or generated scene cannot be classified as an engine, product, deployment, or native artifact.",
     "temporal-continuity": "Timing, transitions, synchronization, loops, and boundary moments remain perceptually continuous.",
     "device-context": "The artifact is checked on representative viewport, display, input, print, playback, or runtime conditions."
   },
@@ -74,10 +155,16 @@
       "id": "interface",
       "contract": "references/capabilities/interface.md",
       "accepts": ["website", "web-app", "dashboard", "ecommerce", "admin", "web-rendered-interface"],
-      "outputs": ["responsive-product-interface", "interactive-prototype", "browser-verified-ui"],
+      "outputs": [
+        {"id": "responsive-product-interface", "requires_foundations": ["product-visual-system"], "requires_delegates": ["runtime"], "allowed_classifications": ["native-product"], "artifact_suffixes": [".html", ".zip"]},
+        {"id": "interactive-prototype", "requires_foundations": ["product-visual-system"], "requires_delegates": ["runtime"], "allowed_classifications": ["interactive-prototype"], "artifact_suffixes": [".html", ".zip"]},
+        {"id": "browser-verified-ui", "requires_foundations": ["product-visual-system"], "requires_delegates": ["runtime"], "allowed_classifications": ["native-product"], "artifact_suffixes": [".html", ".zip"]}
+      ],
+      "foundations": [
+        {"role": "product-visual-system", "sources": ["approved-artboards", "existing-product-system", "mature-design-system", "real-product-media"]}
+      ],
       "delegates": [
-        {"role": "runtime", "candidates": ["actual-project-framework", "browser"]},
-        {"role": "design-system", "candidates": ["design-md", "penpot", "stitch", "existing-product-system"]}
+        {"role": "runtime", "candidates": ["actual-project-framework", "browser", "design-md", "penpot", "stitch"]}
       ],
       "evidence": ["source-truth", "working-artifact", "rendered-artifact", "interaction-states", "system-overview", "technical-integrity", "accessibility", "independent-critique", "device-context"]
     },
@@ -85,9 +172,16 @@
       "id": "presentation",
       "contract": "references/capabilities/presentation.md",
       "accepts": ["pptx", "deck", "pitch", "competition-presentation", "evidence-presentation"],
-      "outputs": ["editable-deck", "presentation-pdf", "judged-evidence-package"],
+      "outputs": [
+        {"id": "editable-deck", "requires_foundations": ["editorial-visual-system"], "requires_delegates": ["authoring"], "allowed_classifications": ["editable-source"], "artifact_suffixes": [".pptx", ".odp", ".zip"]},
+        {"id": "presentation-pdf", "requires_foundations": ["editorial-visual-system"], "requires_delegates": ["authoring", "packaging"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".pdf"]},
+        {"id": "judged-evidence-package", "requires_foundations": ["editorial-visual-system"], "requires_delegates": ["authoring", "packaging"], "allowed_classifications": ["evidence-package"], "artifact_suffixes": [".zip"]}
+      ],
+      "foundations": [
+        {"role": "editorial-visual-system", "sources": ["approved-page-boards", "existing-brand-system", "licensed-template", "real-evidence-media"]}
+      ],
       "delegates": [
-        {"role": "authoring", "candidates": ["powerpoint", "slidev", "pptxgenjs", "licensed-template"]},
+        {"role": "authoring", "candidates": ["powerpoint", "slidev", "pptxgenjs"]},
         {"role": "packaging", "candidates": ["pdf", "document-export"]}
       ],
       "evidence": ["source-truth", "working-artifact", "rendered-artifact", "system-overview", "technical-integrity", "rights-provenance", "independent-critique", "delivery-verification", "device-context"]
@@ -96,7 +190,14 @@
       "id": "document",
       "contract": "references/capabilities/document.md",
       "accepts": ["handbook", "report", "worksheet", "proposal", "guide", "long-form-pdf"],
-      "outputs": ["editable-document", "accessible-pdf", "print-ready-document"],
+      "outputs": [
+        {"id": "editable-document", "requires_foundations": ["editorial-system"], "requires_delegates": ["authoring"], "allowed_classifications": ["editable-source"], "artifact_suffixes": [".docx", ".odt", ".typ", ".html"]},
+        {"id": "accessible-pdf", "requires_foundations": ["editorial-system"], "requires_delegates": ["authoring", "inspection"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".pdf"]},
+        {"id": "print-ready-document", "requires_foundations": ["editorial-system"], "requires_delegates": ["authoring", "inspection"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".pdf"]}
+      ],
+      "foundations": [
+        {"role": "editorial-system", "sources": ["approved-spreads", "existing-publication-system", "licensed-editorial-template", "real-document-media"]}
+      ],
       "delegates": [
         {"role": "authoring", "candidates": ["docx", "typst", "quarto", "pandoc", "html-editorial"]},
         {"role": "inspection", "candidates": ["pdf", "ocr-and-documents"]}
@@ -107,7 +208,14 @@
       "id": "motion",
       "contract": "references/capabilities/motion.md",
       "accepts": ["product-film", "demo-video", "launch-video", "motion-graphic", "social-cut"],
-      "outputs": ["timeline-source", "master-video", "platform-derivative"],
+      "outputs": [
+        {"id": "timeline-source", "requires_foundations": ["film-language"], "requires_delegates": ["timeline"], "allowed_classifications": ["editable-source"], "artifact_suffixes": [".zip"]},
+        {"id": "master-video", "requires_foundations": ["film-language"], "requires_delegates": ["timeline", "encode"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".mp4", ".mov", ".webm"]},
+        {"id": "platform-derivative", "requires_foundations": ["film-language"], "requires_delegates": ["timeline", "encode"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".mp4", ".mov", ".webm"]}
+      ],
+      "foundations": [
+        {"role": "film-language", "sources": ["approved-look-frames", "authentic-footage", "licensed-motion-assets", "existing-motion-system"]}
+      ],
       "delegates": [
         {"role": "capture", "candidates": ["browser-capture", "camera-source", "screen-recorder"]},
         {"role": "timeline", "candidates": ["native-nle", "remotion", "motion-canvas", "revideo"]},
@@ -119,7 +227,14 @@
       "id": "image",
       "contract": "references/capabilities/image.md",
       "accepts": ["product-image", "campaign-image", "illustration", "photo-edit", "concept-scene"],
-      "outputs": ["final-image", "campaign-set", "product-preserving-edit"],
+      "outputs": [
+        {"id": "final-image", "requires_foundations": ["image-language"], "requires_delegates": ["generation-or-edit", "postprocess"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"]},
+        {"id": "campaign-set", "requires_foundations": ["image-language"], "requires_delegates": ["generation-or-edit", "postprocess"], "allowed_classifications": ["evidence-package"], "artifact_suffixes": [".zip"]},
+        {"id": "product-preserving-edit", "requires_foundations": ["image-language"], "requires_delegates": ["generation-or-edit", "postprocess"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"]}
+      ],
+      "foundations": [
+        {"role": "image-language", "sources": ["approved-image-reference-set", "identity-source", "licensed-visual-assets", "real-photography"]}
+      ],
       "delegates": [
         {"role": "generation-or-edit", "candidates": ["configured-image-backend", "image-editor", "photography"]},
         {"role": "postprocess", "candidates": ["imagemagick", "libvips", "openimageio"]}
@@ -130,7 +245,14 @@
       "id": "game-ui",
       "contract": "references/capabilities/game-ui.md",
       "accepts": ["engine-hud", "game-menu", "ui-asset-pack", "nine-slice", "ui-atlas"],
-      "outputs": ["engine-interface", "semantic-ui-kit", "integration-ready-assets"],
+      "outputs": [
+        {"id": "engine-interface", "requires_foundations": ["game-art-system"], "requires_delegates": ["runtime"], "allowed_classifications": ["native-product"], "artifact_suffixes": [".zip", ".godot", ".tscn", ".unity"]},
+        {"id": "semantic-ui-kit", "requires_foundations": ["game-art-system"], "requires_delegates": ["asset-production"], "allowed_classifications": ["editable-source"], "artifact_suffixes": [".zip"]},
+        {"id": "integration-ready-assets", "requires_foundations": ["game-art-system"], "requires_delegates": ["runtime", "asset-production"], "allowed_classifications": ["integration-assets"], "artifact_suffixes": [".zip", ".tres", ".res", ".atlas"]}
+      ],
+      "foundations": [
+        {"role": "game-art-system", "sources": ["approved-gameplay-frame", "existing-game-art-bible", "production-game-assets", "real-engine-scene"]}
+      ],
       "delegates": [
         {"role": "runtime", "candidates": ["actual-game-engine", "godot", "unity", "cocos"]},
         {"role": "asset-production", "candidates": ["configured-image-backend", "pixel-editor"]}
@@ -141,9 +263,17 @@
       "id": "sprite",
       "contract": "references/capabilities/sprite.md",
       "accepts": ["character-sprite", "environment-sprite", "prop", "projectile", "impact", "frame-animation"],
-      "outputs": ["transparent-frames", "sprite-sheet", "animation-preview", "engine-atlas"],
+      "outputs": [
+        {"id": "transparent-frames", "requires_foundations": ["sprite-art-system"], "requires_delegates": ["source-production", "postprocess"], "allowed_classifications": ["evidence-package"], "artifact_suffixes": [".zip"]},
+        {"id": "sprite-sheet", "requires_foundations": ["sprite-art-system"], "requires_delegates": ["source-production", "postprocess"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".png", ".webp"]},
+        {"id": "animation-preview", "requires_foundations": ["sprite-art-system"], "requires_delegates": ["source-production", "postprocess"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".gif", ".webp", ".mp4"]},
+        {"id": "engine-atlas", "requires_foundations": ["sprite-art-system"], "requires_delegates": ["source-production", "postprocess"], "allowed_classifications": ["integration-assets"], "artifact_suffixes": [".zip", ".tres", ".res", ".atlas"]}
+      ],
+      "foundations": [
+        {"role": "sprite-art-system", "sources": ["approved-sprite-bible", "existing-asset-system", "hand-authored-source-art", "selected-sprite-reference-set"]}
+      ],
       "delegates": [
-        {"role": "creative-source", "candidates": ["configured-image-backend", "pixel-editor", "hand-authored-art"]},
+        {"role": "source-production", "candidates": ["configured-image-backend", "pixel-editor"]},
         {"role": "postprocess", "candidates": ["bundled-sprite-processor", "actual-engine-importer"]}
       ],
       "evidence": ["source-truth", "working-artifact", "rendered-artifact", "system-overview", "technical-integrity", "rights-provenance", "independent-critique", "temporal-continuity"]
@@ -152,7 +282,14 @@
       "id": "visual-explanation",
       "contract": "references/capabilities/visual-explanation.md",
       "accepts": ["diagram", "infographic", "data-story", "knowledge-comic", "educational-animation"],
-      "outputs": ["editable-explanation", "rendered-diagram", "narrative-visual"],
+      "outputs": [
+        {"id": "editable-explanation", "requires_foundations": ["explanatory-language"], "requires_delegates": ["authoring"], "allowed_classifications": ["editable-source"], "artifact_suffixes": [".drawio", ".excalidraw", ".svg", ".html"]},
+        {"id": "rendered-diagram", "requires_foundations": ["explanatory-language"], "requires_delegates": ["authoring"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".png", ".svg", ".pdf"]},
+        {"id": "narrative-visual", "requires_foundations": ["explanatory-language"], "requires_delegates": ["authoring"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".png", ".svg", ".pdf", ".mp4"]}
+      ],
+      "foundations": [
+        {"role": "explanatory-language", "sources": ["approved-story-frame", "existing-editorial-system", "evidence-structure", "selected-explanation-reference-set"]}
+      ],
       "delegates": [
         {"role": "authoring", "candidates": ["drawio", "excalidraw", "mermaid", "svg", "infographic", "comic", "manim"]}
       ],
@@ -162,10 +299,18 @@
       "id": "spatial",
       "contract": "references/capabilities/spatial.md",
       "accepts": ["3d-scene", "product-visualization", "environment", "realtime-visual", "installation", "creative-coding"],
-      "outputs": ["native-scene", "render", "realtime-experience", "interchange-asset"],
+      "outputs": [
+        {"id": "native-scene", "requires_foundations": ["spatial-language"], "requires_delegates": ["authoring"], "allowed_classifications": ["editable-source"], "artifact_suffixes": [".blend", ".3dm", ".zip", ".godot"]},
+        {"id": "render", "requires_foundations": ["spatial-language"], "requires_delegates": ["authoring"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".png", ".jpg", ".mp4"]},
+        {"id": "realtime-experience", "requires_foundations": ["spatial-language"], "requires_delegates": ["authoring"], "allowed_classifications": ["native-product"], "artifact_suffixes": [".zip", ".godot", ".html"]},
+        {"id": "interchange-asset", "requires_foundations": ["spatial-language"], "requires_delegates": ["authoring", "asset-and-interchange"], "allowed_classifications": ["integration-assets"], "artifact_suffixes": [".glb", ".gltf", ".fbx", ".obj", ".zip"]}
+      ],
+      "foundations": [
+        {"role": "spatial-language", "sources": ["approved-spatial-concept", "existing-spatial-system", "licensed-asset-library", "real-site-or-product-source"]}
+      ],
       "delegates": [
         {"role": "authoring", "candidates": ["blender", "rhino", "touchdesigner", "p5js", "processing", "actual-engine"]},
-        {"role": "asset-and-interchange", "candidates": ["gltf-transform", "meshlab", "material-maker", "licensed-assets"]}
+        {"role": "asset-and-interchange", "candidates": ["gltf-transform", "meshlab", "material-maker"]}
       ],
       "evidence": ["source-truth", "working-artifact", "rendered-artifact", "interaction-states", "system-overview", "technical-integrity", "rights-provenance", "independent-critique", "temporal-continuity", "device-context"]
     },
@@ -173,7 +318,15 @@
       "id": "sound",
       "contract": "references/capabilities/sound.md",
       "accepts": ["music", "sound-effect", "narration", "sonic-identity", "interactive-audio"],
-      "outputs": ["master-audio", "stems", "localized-voice", "integrated-sound-system"],
+      "outputs": [
+        {"id": "master-audio", "requires_foundations": ["sonic-language"], "requires_delegates": ["source", "edit-and-integrate"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".wav", ".flac", ".mp3", ".m4a", ".ogg"]},
+        {"id": "stems", "requires_foundations": ["sonic-language"], "requires_delegates": ["source", "edit-and-integrate"], "allowed_classifications": ["editable-source"], "artifact_suffixes": [".zip"]},
+        {"id": "localized-voice", "requires_foundations": ["sonic-language"], "requires_delegates": ["source", "edit-and-integrate"], "allowed_classifications": ["rendered-output"], "artifact_suffixes": [".wav", ".flac", ".mp3", ".m4a", ".ogg"]},
+        {"id": "integrated-sound-system", "requires_foundations": ["sonic-language"], "requires_delegates": ["source", "edit-and-integrate"], "allowed_classifications": ["integration-assets"], "artifact_suffixes": [".zip"]}
+      ],
+      "foundations": [
+        {"role": "sonic-language", "sources": ["approved-sonic-identity", "licensed-source-library", "recorded-performance", "selected-sonic-reference-set"]}
+      ],
       "delegates": [
         {"role": "source", "candidates": ["licensed-audio", "configured-audio-generator", "voice-provider", "recording"]},
         {"role": "edit-and-integrate", "candidates": ["daw", "audio-editor", "actual-runtime", "ffmpeg"]}
@@ -188,9 +341,15 @@
     "provenance": "references/open-design-skill-provenance.md"
   },
   "resources": [
+    "maintenance/audit_ecosystem.py",
+    "maintenance/ecosystem-audit-baseline.json",
+    "maintenance/spdx-license-ids.json",
+    "maintenance/validate_skill.py",
     "references/LICENSE.txt",
+    "references/artifact-release-record.md",
     "templates/final-user-design-brief.md",
     "templates/adoption-ledger.md",
+    "templates/artifact-release-record.json",
     "templates/design-retrospective.md",
     "scripts/media-requirements.txt",
     "scripts/frontend/scan_frontend_project.py",

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "registry_schema_version": 4,
+  "registry_sha256": "replace with SHA-256 of the installed references/capability-registry.json",
+  "artifact_id": "replace-with-artifact-id",
+  "capability_id": "replace-with-capability-id",
+  "producer": "replace-with-producing-agent-or-person",
+  "creative_authority": "mature-design-director",
+  "artifact_state": "direction-candidate",
+  "final_audience": "replace with the named final user, not the requester or evaluator",
+  "requester_reviewer": "replace with requester, reviewer, and operator roles",
+  "native_medium": {
+    "requested": "replace with requested natural medium",
+    "actual": "replace with actual artifact/runtime",
+    "classification": "replace with the truthful current class; delivered must use one allowed by output_class",
+    "output_class": "replace with one output id declared by the selected capability"
+  },
+  "primary_artifact": {
+    "ref": "replace with project-local native artifact or deterministic bundle",
+    "sha256": "replace with lowercase 64-character digest"
+  },
+  "creative_foundations": [],
+  "assembly_mechanics": [],
+  "evidence": {},
+  "state_history": [
+    {
+      "state": "direction-candidate",
+      "evidence": []
+    }
+  ],
+  "delegations": [],
+  "rejection_reason": ""
+}

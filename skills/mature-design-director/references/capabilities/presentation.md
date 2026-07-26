@@ -2,6 +2,8 @@
 
 Use this capability for premium decks, competition submissions, investor/product pitches, demo-day materials, launch presentations, and evidence-heavy reports. For `.pptx`, also load presentation mechanics; for PDF/HTML delivery use the applicable format adapter. This capability owns narrative, judging strategy, visual direction, evidence composition, and submission-safe QA—not low-level file-format mechanics already covered elsewhere.
 
+Enter full-deck production only from the umbrella's `selected-direction`. Approved page boards, an existing brand/editorial system, a licensed template visibly adopted for its language, and real evidence media can form the creative foundation. PowerPoint, Slidev, PptxGenJS, PDF conversion, and layout code are assembly mechanics.
+
 ## Truth and artifact strategy
 
 Before design, inspect the authoritative rules or delivery contract and record:
@@ -27,13 +29,13 @@ Keep the official upload directory limited to the exact permitted set. Store edi
 
 ## Representative-direction gate
 
-Recover the strongest prior approved deck/source before fresh ideation. When taste risk is high, build only three representative pages first:
+Recover the strongest prior approved deck/source before fresh ideation. Build only three intended-scale representative page boards first:
 
 - cover/emotional thesis;
 - densest product/evidence page;
 - proof, architecture, or closing page.
 
-Show their static resting frames and motion behavior when motion is material. Do not produce the full deck until one direction has evidence of fit or explicit approval. A rejected direction becomes non-final and isolated; do not continue polishing it under another filename.
+Show their static resting frames and motion behavior when motion is material. Compare them with named mature deck references and do not produce the full deck until they pass the umbrella selection gate. When the user asked to score examples, show these page boards first. A rejected direction becomes non-final and isolated; do not continue polishing it under another filename.
 
 Prefer one dominant image or idea per page, asymmetric editorial pacing, concise type, deliberate density variation, and a small number of meaningful palette accents. Avoid repeated rounded cards, equal three-column layouts, tiny full-page screenshots, decorative KPIs, and generic competition labels.
 
@@ -86,7 +88,7 @@ Choose deliberately:
 3. render complete pages and package one image per slide when fidelity outranks editability;
 4. use native editable slide elements when editability is required.
 
-Disclose image-backed/non-editable tradeoffs. Do not let PptxGenJS or another programmatic tool invent the visual grammar from repeated rectangles. Preserve a strong approved motion source in its native/high-fidelity channel rather than replacing it with stiff motion merely to fit PPTX.
+Disclose image-backed/non-editable tradeoffs. Programmatic authoring is assembly mechanics, not visual authorship. Do not let PptxGenJS or another programmatic tool invent or approve the visual grammar from repeated rectangles. Preserve a strong approved motion source in its native/high-fidelity channel rather than replacing it with stiff motion merely to fit PPTX.
 
 Use motion or offline dynamic delivery only when it genuinely increases judging/user value. Preserve the QA-passed static fallback, verify playback in the exact target viewer, and do not substitute a palette-limited full-slide GIF for native timing or a high-quality video fallback.
 

@@ -21,6 +21,7 @@ REGISTRY = ROOT / "references" / "capability-registry.json"
 CATALOG = ROOT / "references" / "ecosystem-catalog.json"
 SPDX = ROOT / "maintenance" / "spdx-license-ids.json"
 AUDIT = ROOT / "maintenance" / "ecosystem-audit-baseline.json"
+CREATIVE_SKILLS = ROOT / "references" / "creative-skill-sources.json"
 sys.path.insert(0, str(ROOT / "maintenance"))
 SPEC = importlib.util.spec_from_file_location("validate_skill", SCRIPT)
 assert SPEC and SPEC.loader
@@ -40,6 +41,52 @@ class ValidateSkillTests(unittest.TestCase):
         VALIDATOR.validate_capability_registry(self.registry, ROOT)
         VALIDATOR.validate_audit_baseline(json.loads(AUDIT.read_text(encoding="utf-8")), self.rows, ROOT)
 
+    def test_json_loader_rejects_duplicate_keys_and_excessive_depth(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "input.json"
+            path.write_text('{"value": 1, "value": 2}', encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "duplicate JSON key"):
+                VALIDATOR.load_json_strict(path)
+            path.write_text("[" * 2_000 + "0" + "]" * 2_000, encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "JSON nesting"):
+                VALIDATOR.load_json_strict(path)
+            for constant in ("NaN", "Infinity", "-Infinity"):
+                path.write_text(f"[{constant}]", encoding="utf-8")
+                with self.subTest(constant=constant), self.assertRaisesRegex(ValueError, "non-standard JSON constant"):
+                    VALIDATOR.load_json_strict(path)
+
+    def test_creative_source_registry_types_fail_closed(self) -> None:
+        data = json.loads(CREATIVE_SKILLS.read_text(encoding="utf-8"))
+        bad = copy.deepcopy(data)
+        bad["sources"][0]["url"] = 7
+        with self.assertRaisesRegex(ValueError, "url"):
+            VALIDATOR.validate_creative_skill_sources(bad)
+        bad = copy.deepcopy(data)
+        bad["sources"][0]["stars_at_verification"] = True
+        with self.assertRaisesRegex(ValueError, "non-negative integer"):
+            VALIDATOR.validate_creative_skill_sources(bad)
+        bad = copy.deepcopy(data)
+        bad["schema_version"] = True
+        with self.assertRaisesRegex(ValueError, "schema_version"):
+            VALIDATOR.validate_creative_skill_sources(bad)
+
+    def test_natural_artifact_format_probes_reject_plain_text_with_allowed_suffixes(self) -> None:
+        direct_suffixes = {
+            suffix
+            for capability in self.registry["capabilities"]
+            for output in capability["outputs"]
+            for suffix in output["artifact_suffixes"]
+            if suffix != ".zip"
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            for suffix in sorted(direct_suffixes):
+                artifact = root / f"disguised{suffix}"
+                artifact.write_text("# README\nsource generator concept only\n", encoding="utf-8")
+                with self.subTest(suffix=suffix):
+                    with self.assertRaisesRegex(ValueError, "artifact format"):
+                        VALIDATOR.validate_artifact_format(artifact)
+
     def test_registry_accepts_a_new_vertical_capability_without_validator_changes(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp) / "skill"
@@ -52,7 +99,18 @@ class ValidateSkillTests(unittest.TestCase):
                     "id": "haptic",
                     "contract": "references/capabilities/haptic.md",
                     "accepts": ["tactile-feedback"],
-                    "outputs": ["haptic-system"],
+                    "outputs": [
+                        {
+                            "id": "haptic-system",
+                            "requires_foundations": ["tactile-language"],
+                            "requires_delegates": ["runtime"],
+                            "allowed_classifications": ["native-product"],
+                            "artifact_suffixes": [".zip"],
+                        }
+                    ],
+                    "foundations": [
+                        {"role": "tactile-language", "sources": ["approved-haptic-pattern"]},
+                    ],
                     "delegates": [{"role": "runtime", "candidates": ["actual-device-runtime"]}],
                     "evidence": ["working-artifact", "device-context"],
                 }
@@ -71,6 +129,18 @@ class ValidateSkillTests(unittest.TestCase):
         bad = copy.deepcopy(self.registry)
         bad["capabilities"][0]["contract"] = "../outside.md"
         with self.assertRaisesRegex(ValueError, "escapes"):
+            VALIDATOR.validate_capability_registry(bad, ROOT)
+        bad = copy.deepcopy(self.registry)
+        bad["artifact_lifecycle"]["initial_state"] = []
+        with self.assertRaisesRegex(ValueError, "initial_state"):
+            VALIDATOR.validate_capability_registry(bad, ROOT)
+        bad = copy.deepcopy(self.registry)
+        bad["artifact_lifecycle"]["transitions"][0]["from"] = []
+        with self.assertRaisesRegex(ValueError, "transition.*invalid state"):
+            VALIDATOR.validate_capability_registry(bad, ROOT)
+        bad = copy.deepcopy(self.registry)
+        bad["artifact_lifecycle"]["rejection_transition"]["to"] = []
+        with self.assertRaisesRegex(ValueError, "rejection transition"):
             VALIDATOR.validate_capability_registry(bad, ROOT)
 
     def test_audit_baseline_binds_inputs_rows_and_status_semantics(self) -> None:
@@ -125,6 +195,7 @@ class ValidateSkillTests(unittest.TestCase):
             ("last_verified", "not-a-date", "ISO"),
             ("license_verified_at", "not-a-date", "ISO"),
             ("accepted_spdx", ["not-valid"], "SPDX"),
+            ("accepted_spdx", [{}], "SPDX"),
         ]
         for field, value, message in mutations:
             with self.subTest(field=field):

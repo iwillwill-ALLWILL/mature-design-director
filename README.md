@@ -4,7 +4,7 @@
 
 Mature Design Director is a portable Agent Skill for directing complete user-facing artifacts across interfaces, decks, documents, motion, images, game UI, sprites, diagrams, 3D/realtime work, and sound.
 
-It turns final-user intent into one authored design contract, routes only the capabilities the artifact needs, delegates file/engine mechanics to mature tools, and requires evidence from the real rendered artifact before delivery.
+It separates the final audience from the requester or scorer, establishes an adopted creative foundation before implementation, routes only the capabilities the artifact needs, delegates file/engine mechanics to mature tools, and requires a hash-bound release record from the real artifact before any delivered claim.
 
 ## Give it to your AI
 
@@ -42,23 +42,27 @@ final-user intent
       ↓
 mature-design-director constitution
       ↓
-semantic direction and mature foundations
+authentic audience encounter and creative foundation
       ↓
-capability registry selects the narrow output contracts
+representative proof selected against named mature benchmarks
       ↓
-external tools execute file / engine / rendering mechanics
+capability registry selects narrow output contracts and mechanics
       ↓
-real artifact evidence and adversarial critique
+native artifact + independent whole-artifact critique
+      ↓
+hash-bound lifecycle record → delivered or rejected
       ↓
 authorized, sanitized learning returns to the narrowest layer
 ```
 
-The validator does not contain a list of capabilities, absorbed skills, retained local skills, or an aesthetic blacklist. A new capability is a declarative contract with inputs, outputs, delegation roles, and evidence; the generic validator only checks that the graph resolves.
+The validator does not contain a list of capabilities, absorbed skills, retained local skills, project names, or an aesthetic blacklist. A new capability is a declarative contract with inputs, outputs, creative-foundation roles, mechanics roles, and evidence. The validator checks the graph and project release records; human or independent comparative review still owns taste.
 
 ## What is included
 
-- Seven-stage production flow: intent, foundation, direction, proof, production, critique, learning.
+- Seven-stage production flow: intent, foundation, direction, selection, production, critique, delivery and learning.
 - Ten capabilities: interface, presentation, document, motion, image, game UI, sprite, visual explanation, spatial/realtime, and sound.
+- One cross-medium artifact lifecycle with separate creative-foundation and assembly-mechanics layers.
+- Hash-bound project release records that bind the primary natural artifact, verify recognizable format/container identity, require an exact payload manifest for multi-file ZIPs, and reject concept-proof promotion, README/source-generator stand-ins, mechanics-only evidence, self-review, timeout delegation output, and native-medium overclaims.
 - Governed research over mature public creative skills and 104 production projects.
 - Truth, rights, accessibility, privacy, editability, and delivery-state discipline.
 - Whole-artifact review rather than source-code confidence.
@@ -78,6 +82,11 @@ The validator does not contain a list of capabilities, absorbed skills, retained
 ```bash
 python3 skills/mature-design-director/maintenance/validate_skill.py
 python3 -m unittest discover -s skills/mature-design-director/tests -p 'test_*.py'
+
+# Before claiming a project artifact is delivered:
+python3 skills/mature-design-director/maintenance/validate_skill.py \
+  --artifact-record /path/to/project/.hermes/design/artifact-release.json \
+  --project-root /path/to/project
 ```
 
 Architecture and extension rules are in [`docs/architecture.md`](docs/architecture.md). Source and licensing boundaries are documented inside the skill.
