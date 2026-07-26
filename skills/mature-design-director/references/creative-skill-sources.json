@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-07-26",
+  "method": {
+    "definition_of_mature": "Public SKILL.md from an official, established, or demonstrably maintained repository; a clear creative workflow; repository-level maintenance and license reviewed; unique behavior must survive comparison with the existing capability graph.",
+    "searches": [
+      "GitHub repository search across agent skills, Claude skills, design, frontend, presentation, video, image, diagram, game, 3D, audio and music",
+      "GitHub code search for SKILL.md across ten media-specific queries, up to 100 results per query",
+      "recursive SKILL.md tree enumeration of official and high-signal repositories",
+      "awesome-agent-skill indexes used only for discovery; primary repositories rechecked directly",
+      "selected SKILL.md files read from the authenticated GitHub Contents API"
+    ],
+    "coverage_boundary": "GitHub is continuously changing and code search is not mathematically exhaustive. This registry covers the mature official/high-signal public skill ecosystems found in the live search; ordinary tool repositories remain in ecosystem-catalog.json rather than being mislabeled as agent skills.",
+    "adoption_rule": "Absorb behavior into the narrowest constitution/capability/evidence layer. Never bulk-install an upstream repository or copy license-unclear prose. Tool-specific commands remain adapters, not design authority."
+  },
+  "sources": [
+    {
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "maintainer_class": "official",
+      "stars_at_verification": 164202,
+      "pushed_at": "2026-07-24T20:12:36Z",
+      "repository_license": null,
+      "license_status": "manual-review-no-repository-license",
+      "selected_skills": [
+        "skills/algorithmic-art/SKILL.md",
+        "skills/brand-guidelines/SKILL.md",
+        "skills/canvas-design/SKILL.md",
+        "skills/doc-coauthoring/SKILL.md",
+        "skills/docx/SKILL.md",
+        "skills/frontend-design/SKILL.md",
+        "skills/pdf/SKILL.md",
+        "skills/pptx/SKILL.md",
+        "skills/web-artifacts-builder/SKILL.md",
+        "skills/webapp-testing/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "choose a specific aesthetic thesis before implementation",
+        "treat brand rules as semantic constraints rather than decoration",
+        "progressively disclose large references and keep editable source plus rendered proof",
+        "separate document/deck mechanics from the audience-facing design decision",
+        "inspect a real browser artifact instead of trusting source code"
+      ],
+      "placement": ["constitution", "interface", "document", "presentation", "critique"],
+      "rejected_assumptions": [
+        "programmatic shapes are sufficient art direction",
+        "an upstream skill's house style should become the umbrella default"
+      ]
+    },
+    {
+      "repository": "openai/skills",
+      "url": "https://github.com/openai/skills",
+      "maintainer_class": "official",
+      "stars_at_verification": 24179,
+      "pushed_at": "2026-07-14T16:47:46Z",
+      "repository_license": null,
+      "license_status": "per-skill-license-review",
+      "selected_skills": [
+        "skills/.curated/figma-create-design-system-rules/SKILL.md",
+        "skills/.curated/figma-generate-design/SKILL.md",
+        "skills/.curated/figma-implement-design/SKILL.md",
+        "skills/.curated/pdf/SKILL.md",
+        "skills/.curated/screenshot/SKILL.md",
+        "skills/.system/imagegen/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "keep design-system rules, generated direction and implementation as distinct handoffs",
+        "use screenshots as evidence attached to the exact artifact state",
+        "distinguish raster-generation mechanics from creative authority",
+        "preserve editable source and output-format verification"
+      ],
+      "placement": ["direction", "interface", "image", "document", "critique"],
+      "rejected_assumptions": ["Figma or a particular image provider is always available"]
+    },
+    {
+      "repository": "google-labs-code/stitch-skills",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "maintainer_class": "official",
+      "stars_at_verification": 7818,
+      "pushed_at": "2026-07-21T17:37:57Z",
+      "repository_license": "Apache-2.0",
+      "license_status": "accepted",
+      "selected_skills": [
+        "plugins/stitch-design/skills/code-to-design/SKILL.md",
+        "plugins/stitch-design/skills/extract-design-md/SKILL.md",
+        "plugins/stitch-design/skills/extract-static-html/SKILL.md",
+        "plugins/stitch-design/skills/generate-design/SKILL.md",
+        "plugins/stitch-design/skills/manage-design-system/SKILL.md",
+        "plugins/stitch-design/skills/upload-to-stitch/SKILL.md",
+        "plugins/stitch-utilities/skills/design-md/SKILL.md",
+        "plugins/stitch-utilities/skills/taste-design/SKILL.md",
+        "plugins/stitch-build/skills/react-components/SKILL.md",
+        "plugins/stitch-build/skills/react-native/SKILL.md",
+        "plugins/stitch-build/skills/remotion/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "translate vague taste into semantic axes such as atmosphere, density, variance and motion",
+        "make the design contract portable between generated design, source code and a maintained design system",
+        "keep existing code/design sources as evidence rather than restarting from prompts",
+        "separate generated concepts from implementation adapters",
+        "treat code-to-design and design-to-code as a round trip with source-of-truth ownership"
+      ],
+      "placement": ["direction", "foundation", "interface", "motion"],
+      "rejected_assumptions": [
+        "one accent color, one font ban, constant animation or any other taste constant is universally mature",
+        "Stitch is required for the workflow"
+      ]
+    },
+    {
+      "repository": "github/awesome-copilot",
+      "url": "https://github.com/github/awesome-copilot",
+      "maintainer_class": "official-community",
+      "stars_at_verification": 37041,
+      "pushed_at": "2026-07-25T21:02:48Z",
+      "repository_license": "MIT",
+      "license_status": "accepted",
+      "selected_skills": [
+        "skills/anti-ui-slop/SKILL.md",
+        "skills/premium-frontend-ui/SKILL.md",
+        "skills/web-design-reviewer/SKILL.md",
+        "skills/penpot-uiux-design/SKILL.md",
+        "skills/ui-screenshots/SKILL.md",
+        "skills/pr-screenshots/SKILL.md",
+        "skills/draw-io-diagram-generator/SKILL.md",
+        "skills/excalidraw-diagram-generator/SKILL.md",
+        "skills/adobe-illustrator-scripting/SKILL.md",
+        "skills/generate-image/SKILL.md",
+        "skills/rhino3d-scripts/SKILL.md",
+        "skills/game-engine/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "detect generic UI defaults as symptoms of absent product reasoning rather than as a style blacklist",
+        "compare rendered evidence with a reference and report concrete visible deltas",
+        "retain editable native sources for diagrams, vectors and 3D",
+        "name layers, canvases and outputs for inspectable handoff",
+        "separate image, diagram, CAD and engine mechanics from final-user direction"
+      ],
+      "placement": ["interface", "visual-explanation", "image", "spatial", "game-ui", "critique"],
+      "rejected_assumptions": ["a gallery of effects or component recipes constitutes premium design"]
+    },
+    {
+      "repository": "addyosmani/agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "maintainer_class": "established-maintainer",
+      "stars_at_verification": 80405,
+      "pushed_at": "2026-07-26T02:22:17Z",
+      "repository_license": "MIT",
+      "license_status": "accepted",
+      "selected_skills": [
+        "skills/api-and-interface-design/SKILL.md",
+        "skills/documentation-and-adrs/SKILL.md",
+        "skills/frontend-ui-engineering/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "treat frontend quality as the joint result of product structure, responsiveness, accessibility and performance",
+        "record architectural decisions separately from user-facing documentation",
+        "keep interface contracts explicit across behavior and presentation"
+      ],
+      "placement": ["interface", "document", "evidence"],
+      "rejected_assumptions": []
+    },
+    {
+      "repository": "JimLiu/baoyu-skills",
+      "url": "https://github.com/JimLiu/baoyu-skills",
+      "maintainer_class": "mature-community",
+      "stars_at_verification": 24168,
+      "pushed_at": "2026-07-04T16:25:18Z",
+      "repository_license": "MIT",
+      "license_status": "accepted",
+      "selected_skills": [
+        "skills/baoyu-article-illustrator/SKILL.md",
+        "skills/baoyu-comic/SKILL.md",
+        "skills/baoyu-cover-image/SKILL.md",
+        "skills/baoyu-diagram/SKILL.md",
+        "skills/baoyu-image-gen/SKILL.md",
+        "skills/baoyu-infographic/SKILL.md",
+        "skills/baoyu-slide-deck/SKILL.md",
+        "skills/baoyu-xhs-images/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "derive visual structure from information structure before choosing style",
+        "persist final prompts and reference roles before rendering for reproducibility",
+        "preserve exact data and separate source analysis, structured content, prompt and output",
+        "use reference images explicitly as subject, palette, style or composition evidence",
+        "regenerate malformed visual text rather than painting over it programmatically",
+        "batch independent renders while keeping per-artifact source records"
+      ],
+      "placement": ["presentation", "image", "visual-explanation", "production"],
+      "rejected_assumptions": [
+        "a fixed layout-style matrix should decide the direction before user/product intent",
+        "image-backed slides are always preferable to native editable slides",
+        "confirmation is mandatory when the user has already delegated autonomous production"
+      ]
+    },
+    {
+      "repository": "JetBrains/skills",
+      "url": "https://github.com/JetBrains/skills",
+      "maintainer_class": "established-aggregator",
+      "stars_at_verification": 273,
+      "pushed_at": "2026-06-29T16:39:59Z",
+      "repository_license": null,
+      "license_status": "per-skill-license-review",
+      "selected_skills": [
+        "antfu-web-design-guidelines/SKILL.md",
+        "frontend-design/SKILL.md",
+        "modern-web-guidance/SKILL.md",
+        "slides/SKILL.md",
+        "slidev/SKILL.md",
+        "ui-website-style/SKILL.md",
+        "vercel-labs-web-design-guidelines/SKILL.md",
+        "webgpu-threejs-tsl/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "treat framework and editor compatibility as adapter concerns",
+        "cross-check duplicated upstream guidance and keep the original source authoritative",
+        "route WebGPU/Three.js work through a spatial capability rather than a frontend visual-effects default"
+      ],
+      "placement": ["interface", "presentation", "spatial", "provenance"],
+      "rejected_assumptions": ["an aggregator copy is an independent design authority"]
+    },
+    {
+      "repository": "claude-office-skills/skills",
+      "url": "https://github.com/claude-office-skills/skills",
+      "maintainer_class": "specialized-community",
+      "stars_at_verification": 330,
+      "pushed_at": "2026-01-31T14:03:56Z",
+      "repository_license": "MIT",
+      "license_status": "accepted-with-maintenance-caution",
+      "selected_skills": [
+        "ai-slides/SKILL.md",
+        "chart-designer/SKILL.md",
+        "diagram-creator/SKILL.md",
+        "doc-pipeline/SKILL.md",
+        "docx-manipulation/SKILL.md",
+        "html-slides/SKILL.md",
+        "html-to-ppt/SKILL.md",
+        "infographic/SKILL.md",
+        "ppt-visual/SKILL.md",
+        "pptx-manipulation/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "separate content extraction, narrative structure, visual production and package mechanics",
+        "reverse-check office exports instead of trusting generation success",
+        "choose native editable, HTML or raster delivery according to audience and handoff"
+      ],
+      "placement": ["presentation", "document", "visual-explanation"],
+      "rejected_assumptions": ["office file manipulation alone is creative direction"]
+    },
+    {
+      "repository": "bitwize-music-studio/claude-ai-music-skills",
+      "url": "https://github.com/bitwize-music-studio/claude-ai-music-skills",
+      "maintainer_class": "specialized-community",
+      "stars_at_verification": 384,
+      "pushed_at": "2026-07-26T03:23:48Z",
+      "repository_license": "CC0-1.0",
+      "license_status": "accepted",
+      "selected_skills": [
+        "skills/album-art-director/SKILL.md",
+        "skills/import-art/SKILL.md",
+        "skills/import-audio/SKILL.md",
+        "skills/sheet-music-publisher/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "treat sound, cover art and publication as one release identity while keeping separate evidence",
+        "preserve stems/source audio and record rights before mastering or publication",
+        "judge sequence continuity and listening context rather than isolated file validity"
+      ],
+      "placement": ["sound", "image", "delivery"],
+      "rejected_assumptions": ["album workflow is the default model for every sound artifact"]
+    },
+    {
+      "repository": "CraftOS-dev/CraftBot",
+      "url": "https://github.com/CraftOS-dev/CraftBot",
+      "maintainer_class": "emerging-integrated-community",
+      "stars_at_verification": 375,
+      "pushed_at": "2026-07-26T03:51:03Z",
+      "repository_license": "MIT",
+      "license_status": "accepted-with-maturity-caution",
+      "selected_skills": [
+        "skills/superdesign/SKILL.md",
+        "skills/living-ui-creator/SKILL.md",
+        "skills/living-ui-importer/SKILL.md",
+        "skills/remotion-best-practices/SKILL.md",
+        "skills/remotion-video-toolkit/SKILL.md",
+        "skills/ai-ppt-generator/SKILL.md",
+        "skills/excalidraw-diagram-generator/SKILL.md"
+      ],
+      "absorbed_behaviors": [
+        "keep create, import, modify and manage operations distinct around one design source",
+        "make timeline source, rendered frames and final media separately inspectable",
+        "compose multiple creative mechanics under one artifact direction"
+      ],
+      "placement": ["interface", "motion", "presentation", "visual-explanation"],
+      "rejected_assumptions": ["a bundled orchestration product should become a required dependency"]
+    },
+    {
+      "repository": "chrisvoncsefalvay/claude-d3js-skill",
+      "url": "https://github.com/chrisvoncsefalvay/claude-d3js-skill",
+      "maintainer_class": "specialized-community",
+      "stars_at_verification": 213,
+      "pushed_at": "2025-10-18T02:29:55Z",
+      "repository_license": null,
+      "license_status": "manual-review-no-repository-license",
+      "selected_skills": ["SKILL.md"],
+      "absorbed_behaviors": [
+        "choose a data encoding and interaction model before styling",
+        "offer a nonvisual data alternative and semantic accessibility text",
+        "switch SVG, canvas or framework integration according to scale and interaction needs"
+      ],
+      "placement": ["visual-explanation", "interface"],
+      "rejected_assumptions": ["D3 is preferable to simpler chart systems for standard charts"]
+    },
+    {
+      "repository": "YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill",
+      "url": "https://github.com/YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill",
+      "maintainer_class": "specialized-community",
+      "stars_at_verification": 1784,
+      "pushed_at": "2026-07-26T03:34:19Z",
+      "repository_license": null,
+      "license_status": "manual-review-no-repository-license",
+      "selected_skills": ["SKILL.md"],
+      "absorbed_behaviors": [
+        "search large changing reference libraries through a live manifest instead of hardcoded categories",
+        "show visual samples before selecting a prompt-derived direction",
+        "distinguish an original reference template from a later customized remix"
+      ],
+      "placement": ["foundation", "image", "provenance"],
+      "rejected_assumptions": [
+        "a provider-branded prompt library is a universal image design system",
+        "mandatory attribution or update behavior can be copied without license and product review"
+      ]
+    }
+  ],
+  "reviewed_not_absorbed": [
+    {
+      "repository": "bytonylee/future-slide",
+      "reason": "Mature slide tool project, but no root SKILL.md was found in the targeted Contents check; keep as a production-tool candidate rather than misclassifying it as a creative skill."
+    },
+    {
+      "repository": "google-labs-code/design.md",
+      "reason": "Useful machine-readable design-intent project, but its current SKILL.md files are internal engineering skills rather than creative direction; its design-contract concept is already represented through Stitch and the existing design-md adapter."
+    },
+    {
+      "repository": "VoltAgent/awesome-agent-skills",
+      "reason": "Discovery index only; entries must be evaluated at their primary repository."
+    },
+    {
+      "repository": "ComposioHQ/awesome-claude-skills",
+      "reason": "Discovery index only; entries must be evaluated at their primary repository."
+    }
+  ]
+}

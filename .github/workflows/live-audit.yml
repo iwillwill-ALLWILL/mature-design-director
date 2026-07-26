@@ -1,0 +1,36 @@
+name: Live ecosystem audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Audit all governed production projects
+        shell: bash
+        run: |
+          set +e
+          python3 skills/mature-design-director/scripts/audit_ecosystem.py --json > ecosystem-audit.json
+          rc=$?
+          set -e
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 2 ]; then exit "$rc"; fi
+          python3 - <<'PY'
+          import json
+          data = json.load(open("ecosystem-audit.json", encoding="utf-8"))
+          metadata = data["audit_metadata"]
+          assert metadata["failure_count"] == 0, metadata
+          assert metadata["selected_count"] == metadata["catalog_count"], metadata
+          print(metadata)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-audit
+          path: ecosystem-audit.json

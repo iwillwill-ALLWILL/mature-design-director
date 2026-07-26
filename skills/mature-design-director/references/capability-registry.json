@@ -1,0 +1,214 @@
+{
+  "schema_version": 3,
+  "skill": "mature-design-director",
+  "authority": {
+    "owns": [
+      "final-user-intent",
+      "art-direction",
+      "cross-medium-coherence",
+      "mature-foundation-selection",
+      "whole-artifact-critique",
+      "design-learning"
+    ],
+    "delegates": [
+      "file-format-mechanics",
+      "runtime-and-engine-mechanics",
+      "tool-specific-editing",
+      "rendering-and-encoding"
+    ],
+    "composition_rule": "direction-once-capabilities-as-needed-tools-last"
+  },
+  "flow": [
+    {
+      "id": "intent",
+      "purpose": "Define the final user, encounter, promise, action, trust, emotion, recovery, and truth boundary.",
+      "completion": "The artifact can be judged from the user's perspective without implementation context."
+    },
+    {
+      "id": "foundation",
+      "purpose": "Recover approved work and compare mature references, systems, assets, and tools before custom production.",
+      "completion": "Every material production layer has an evidence-backed owner or an explicit custom-work reason."
+    },
+    {
+      "id": "direction",
+      "purpose": "Create one semantic design contract for atmosphere, identity, hierarchy, type, color, imagery, motion, sound, and forbidden defaults.",
+      "completion": "The contract makes concrete project-specific choices without prescribing a fashionable style."
+    },
+    {
+      "id": "proof",
+      "purpose": "Build representative high-risk moments before scaling production.",
+      "completion": "The opening, densest moment, and decisive proof or transition demonstrate the selected direction."
+    },
+    {
+      "id": "production",
+      "purpose": "Load only the required capability contracts and delegate irreducible mechanics to actual tools.",
+      "completion": "The complete artifact exists and each adopted system owns the layer it was selected for."
+    },
+    {
+      "id": "critique",
+      "purpose": "Inspect the complete rendered or playable artifact, fix defects, and repeat the same evidence matrix.",
+      "completion": "Technical, perceptual, truth, accessibility, rights, and delivery evidence pass for the exact artifact."
+    },
+    {
+      "id": "learning",
+      "purpose": "Keep task state private; promote only authorized, sanitized, reproducible lessons into the narrowest capability.",
+      "completion": "A reusable lesson changes future behavior and includes a regression gate, or remains project-local."
+    }
+  ],
+  "evidence_types": {
+    "source-truth": "Claims, content, identity, and product behavior trace to authoritative sources.",
+    "working-artifact": "The real editable, playable, or native artifact exists and opens in its intended environment.",
+    "rendered-artifact": "The actual export/render has been inspected at final-user scale.",
+    "interaction-states": "Initial, active, loading, empty, error, success, unavailable, interruption, and recovery states are covered as applicable.",
+    "system-overview": "A contact sheet, route matrix, storyboard, page grid, asset overview, or equivalent reveals whole-system coherence.",
+    "technical-integrity": "Build, export, decode, schema, dimensions, performance, and format checks pass as applicable.",
+    "accessibility": "Perceivability, operability, contrast, focus, text alternatives, reduced motion or sensory alternatives are verified as applicable.",
+    "rights-provenance": "Source, license, consent, generation/edit boundary, and redistribution scope are recorded.",
+    "independent-critique": "A fresh reviewer evaluates the actual artifact against intent rather than implementation effort.",
+    "delivery-verification": "The exact delivered or published artifact is reopened and its state is distinguished from approval and submission.",
+    "temporal-continuity": "Timing, transitions, synchronization, loops, and boundary moments remain perceptually continuous.",
+    "device-context": "The artifact is checked on representative viewport, display, input, print, playback, or runtime conditions."
+  },
+  "capabilities": [
+    {
+      "id": "interface",
+      "contract": "references/capabilities/interface.md",
+      "accepts": ["website", "web-app", "dashboard", "ecommerce", "admin", "web-rendered-interface"],
+      "outputs": ["responsive-product-interface", "interactive-prototype", "browser-verified-ui"],
+      "delegates": [
+        {"role": "runtime", "candidates": ["actual-project-framework", "browser"]},
+        {"role": "design-system", "candidates": ["design-md", "penpot", "stitch", "existing-product-system"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "rendered-artifact", "interaction-states", "system-overview", "technical-integrity", "accessibility", "independent-critique", "device-context"]
+    },
+    {
+      "id": "presentation",
+      "contract": "references/capabilities/presentation.md",
+      "accepts": ["pptx", "deck", "pitch", "competition-presentation", "evidence-presentation"],
+      "outputs": ["editable-deck", "presentation-pdf", "judged-evidence-package"],
+      "delegates": [
+        {"role": "authoring", "candidates": ["powerpoint", "slidev", "pptxgenjs", "licensed-template"]},
+        {"role": "packaging", "candidates": ["pdf", "document-export"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "rendered-artifact", "system-overview", "technical-integrity", "rights-provenance", "independent-critique", "delivery-verification", "device-context"]
+    },
+    {
+      "id": "document",
+      "contract": "references/capabilities/document.md",
+      "accepts": ["handbook", "report", "worksheet", "proposal", "guide", "long-form-pdf"],
+      "outputs": ["editable-document", "accessible-pdf", "print-ready-document"],
+      "delegates": [
+        {"role": "authoring", "candidates": ["docx", "typst", "quarto", "pandoc", "html-editorial"]},
+        {"role": "inspection", "candidates": ["pdf", "ocr-and-documents"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "rendered-artifact", "system-overview", "technical-integrity", "accessibility", "rights-provenance", "delivery-verification", "device-context"]
+    },
+    {
+      "id": "motion",
+      "contract": "references/capabilities/motion.md",
+      "accepts": ["product-film", "demo-video", "launch-video", "motion-graphic", "social-cut"],
+      "outputs": ["timeline-source", "master-video", "platform-derivative"],
+      "delegates": [
+        {"role": "capture", "candidates": ["browser-capture", "camera-source", "screen-recorder"]},
+        {"role": "timeline", "candidates": ["native-nle", "remotion", "motion-canvas", "revideo"]},
+        {"role": "encode", "candidates": ["ffmpeg", "platform-transcoder"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "rendered-artifact", "system-overview", "technical-integrity", "accessibility", "rights-provenance", "independent-critique", "delivery-verification", "temporal-continuity", "device-context"]
+    },
+    {
+      "id": "image",
+      "contract": "references/capabilities/image.md",
+      "accepts": ["product-image", "campaign-image", "illustration", "photo-edit", "concept-scene"],
+      "outputs": ["final-image", "campaign-set", "product-preserving-edit"],
+      "delegates": [
+        {"role": "generation-or-edit", "candidates": ["configured-image-backend", "image-editor", "photography"]},
+        {"role": "postprocess", "candidates": ["imagemagick", "libvips", "openimageio"]}
+      ],
+      "evidence": ["source-truth", "rendered-artifact", "system-overview", "technical-integrity", "rights-provenance", "independent-critique", "delivery-verification", "device-context"]
+    },
+    {
+      "id": "game-ui",
+      "contract": "references/capabilities/game-ui.md",
+      "accepts": ["engine-hud", "game-menu", "ui-asset-pack", "nine-slice", "ui-atlas"],
+      "outputs": ["engine-interface", "semantic-ui-kit", "integration-ready-assets"],
+      "delegates": [
+        {"role": "runtime", "candidates": ["actual-game-engine", "godot", "unity", "cocos"]},
+        {"role": "asset-production", "candidates": ["configured-image-backend", "pixel-editor"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "rendered-artifact", "interaction-states", "system-overview", "technical-integrity", "accessibility", "rights-provenance", "independent-critique", "device-context"]
+    },
+    {
+      "id": "sprite",
+      "contract": "references/capabilities/sprite.md",
+      "accepts": ["character-sprite", "environment-sprite", "prop", "projectile", "impact", "frame-animation"],
+      "outputs": ["transparent-frames", "sprite-sheet", "animation-preview", "engine-atlas"],
+      "delegates": [
+        {"role": "creative-source", "candidates": ["configured-image-backend", "pixel-editor", "hand-authored-art"]},
+        {"role": "postprocess", "candidates": ["bundled-sprite-processor", "actual-engine-importer"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "rendered-artifact", "system-overview", "technical-integrity", "rights-provenance", "independent-critique", "temporal-continuity"]
+    },
+    {
+      "id": "visual-explanation",
+      "contract": "references/capabilities/visual-explanation.md",
+      "accepts": ["diagram", "infographic", "data-story", "knowledge-comic", "educational-animation"],
+      "outputs": ["editable-explanation", "rendered-diagram", "narrative-visual"],
+      "delegates": [
+        {"role": "authoring", "candidates": ["drawio", "excalidraw", "mermaid", "svg", "infographic", "comic", "manim"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "rendered-artifact", "system-overview", "technical-integrity", "accessibility", "independent-critique", "delivery-verification"]
+    },
+    {
+      "id": "spatial",
+      "contract": "references/capabilities/spatial.md",
+      "accepts": ["3d-scene", "product-visualization", "environment", "realtime-visual", "installation", "creative-coding"],
+      "outputs": ["native-scene", "render", "realtime-experience", "interchange-asset"],
+      "delegates": [
+        {"role": "authoring", "candidates": ["blender", "rhino", "touchdesigner", "p5js", "processing", "actual-engine"]},
+        {"role": "asset-and-interchange", "candidates": ["gltf-transform", "meshlab", "material-maker", "licensed-assets"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "rendered-artifact", "interaction-states", "system-overview", "technical-integrity", "rights-provenance", "independent-critique", "temporal-continuity", "device-context"]
+    },
+    {
+      "id": "sound",
+      "contract": "references/capabilities/sound.md",
+      "accepts": ["music", "sound-effect", "narration", "sonic-identity", "interactive-audio"],
+      "outputs": ["master-audio", "stems", "localized-voice", "integrated-sound-system"],
+      "delegates": [
+        {"role": "source", "candidates": ["licensed-audio", "configured-audio-generator", "voice-provider", "recording"]},
+        {"role": "edit-and-integrate", "candidates": ["daw", "audio-editor", "actual-runtime", "ffmpeg"]}
+      ],
+      "evidence": ["source-truth", "working-artifact", "technical-integrity", "accessibility", "rights-provenance", "independent-critique", "delivery-verification", "temporal-continuity", "device-context"]
+    }
+  ],
+  "ecosystem": {
+    "creative_skills": "references/creative-skill-sources.json",
+    "production_tools": "references/ecosystem-catalog.json",
+    "live_audit": "references/ecosystem-audit-baseline.json",
+    "license_policy": "references/spdx-license-ids.json",
+    "adoption_protocol": "references/mature-ecosystem-registry.md",
+    "provenance": "references/open-design-skill-provenance.md"
+  },
+  "resources": [
+    "LICENSE",
+    "templates/final-user-design-brief.md",
+    "templates/adoption-ledger.md",
+    "templates/design-retrospective.md",
+    "scripts/audit_ecosystem.py",
+    "scripts/media-requirements.txt",
+    "scripts/frontend/scan_frontend_project.py",
+    "scripts/game-ui/clean_alpha_fringe.py",
+    "scripts/game-ui/ingest_style_reference.py",
+    "scripts/game-ui/package_ui_assets.py",
+    "scripts/game-ui/resize_assets_high_quality.py",
+    "scripts/game-ui/suggest_key_color.py",
+    "scripts/sprite/make_layout_guide.py",
+    "scripts/sprite/process_sprite_sheet.py"
+  ],
+  "learning": {
+    "contract": "references/learning-system.md",
+    "project_record": ".hermes/design/",
+    "default_target": "narrowest-capability",
+    "shared_case_policy": "authorized-sanitized-reproducible"
+  }
+}

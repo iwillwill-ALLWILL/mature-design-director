@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+
+# Python/runtime
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Local agent state
+.hermes/
+
+# Generated audits and previews
+artifacts/
