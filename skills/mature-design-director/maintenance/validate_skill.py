@@ -201,7 +201,34 @@ def _reject_nonstandard_json_constant(value: str) -> None:
     raise ValueError(f"non-standard JSON constant is forbidden: {value}")
 
 
+MAX_JSON_NESTING = 256
+
+
+def _validate_json_nesting(text: str) -> None:
+    depth = 0
+    in_string = False
+    escaped = False
+    for character in text:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == '"':
+                in_string = False
+            continue
+        if character == '"':
+            in_string = True
+        elif character in "[{":
+            depth += 1
+            if depth > MAX_JSON_NESTING:
+                raise ValueError("JSON nesting exceeds the validation limit")
+        elif character in "]}":
+            depth -= 1
+
+
 def loads_json_strict(text: str) -> Any:
+    _validate_json_nesting(text)
     try:
         return json.loads(
             text,

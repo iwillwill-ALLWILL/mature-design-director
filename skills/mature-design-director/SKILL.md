@@ -1,7 +1,7 @@
 ---
 name: mature-design-director
 description: Use when creating or directing any user-facing artifact. Turns final-user intent into one authored design system, routes only the needed creative capabilities and mature tools, and requires whole-artifact evidence before delivery.
-version: 4.0.0
+version: 4.0.1
 author: i willwill + Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]

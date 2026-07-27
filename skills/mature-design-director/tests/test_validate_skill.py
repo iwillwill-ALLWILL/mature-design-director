@@ -50,6 +50,22 @@ class ValidateSkillTests(unittest.TestCase):
             path.write_text("[" * 2_000 + "0" + "]" * 2_000, encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "JSON nesting"):
                 VALIDATOR.load_json_strict(path)
+            nested = VALIDATOR.loads_json_strict(
+                "[" * VALIDATOR.MAX_JSON_NESTING + "0" + "]" * VALIDATOR.MAX_JSON_NESTING
+            )
+            for _ in range(VALIDATOR.MAX_JSON_NESTING):
+                self.assertIsInstance(nested, list)
+                self.assertEqual(len(nested), 1)
+                nested = nested[0]
+            self.assertEqual(nested, 0)
+            with self.assertRaisesRegex(ValueError, "JSON nesting"):
+                VALIDATOR.loads_json_strict(
+                    "[" * (VALIDATOR.MAX_JSON_NESTING + 1) + "0" + "]" * (VALIDATOR.MAX_JSON_NESTING + 1)
+                )
+            self.assertEqual(
+                VALIDATOR.loads_json_strict(json.dumps({"literal": "[" * 1_000 + "]" * 1_000}))["literal"],
+                "[" * 1_000 + "]" * 1_000,
+            )
             for constant in ("NaN", "Infinity", "-Infinity"):
                 path.write_text(f"[{constant}]", encoding="utf-8")
                 with self.subTest(constant=constant), self.assertRaisesRegex(ValueError, "non-standard JSON constant"):
